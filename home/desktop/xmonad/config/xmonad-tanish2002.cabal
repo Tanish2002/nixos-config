@@ -1,0 +1,24 @@
+cabal-version:       >=1.8 
+name:                xmonad-tanish2002
+version:             0.1.0.0
+executable xmonad
+  main-is:             xmonad.hs
+  other-modules:       Apps.Alias
+                     , Apps.Scratchpad
+                     , Bind.KeyBoard
+                     , Bind.Mouse
+                     , Hooks.EventHook
+                     , Hooks.LogHook
+                     , Hooks.ManageHook
+                     , Config.Options
+                     , Container.Layout
+  build-depends:       Cabal
+                     , X11
+                     , base
+                     , containers
+                     , xmonad 
+                     , xmonad-contrib
+                     , utf8-string
+  ghc-options:
+    -dynamic -threaded
+  hs-source-dirs:      src
