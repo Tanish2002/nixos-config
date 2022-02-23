@@ -1,3 +1,4 @@
+''
 /* ==UserStyle==
 @name           Empty @name replaces the default template - 3/14/2020, 9:13:45 PM
 @namespace      github.com/openstyles/stylus
@@ -1310,3 +1311,4 @@ rect[mask="url(#svg-mask-status-offline)"] {
 .content-2Sfaij:hover .cta-2DQ2ez {
     background-color: var(--background-secondary-alt);
 }
+''
