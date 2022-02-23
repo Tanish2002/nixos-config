@@ -1,5 +1,0 @@
-#!/bin/sh
-[ -z "${1}" ] && echo "Usage: box <file>" || localFile="${1}"
-uploadResult="$(curl -sF "reqtype=fileupload" -F "time=72h" -F "fileToUpload=@${localFile}" https://litterbox.catbox.moe/resources/internals/api.php)"
-echo "${uploadResult}" | xclip -sel clip
-echo "${uploadResult}"

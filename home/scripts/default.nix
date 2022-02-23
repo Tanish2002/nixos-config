@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home = {
     packages = with pkgs; [ file maim libnotify ];
-    file.bin = { source = ./bin; };
+    file.bin = { source = inputs.bin; };
   };
 }

@@ -1,3 +1,0 @@
-#!/bin/sh
-file=$(fd --full-path /home/weeb | fzf-tmux)
-[ "${file}" ] && echo "*/upload ${file}" >~/.weechat/weechat_fifo

@@ -24,6 +24,10 @@
       url = "github:Tanish2002/wallpapers";
       flake = false;
     };
+    bin = {
+      url = "github:Tanish2002/bin";
+      flake = false;
+    };
     phocus = {
       url = "github:Tanish2002/gtk";
       flake = false;

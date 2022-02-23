@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1645634941,
+        "narHash": "sha256-AWrB84fzFlg+z1AvLWrWOmrHHjIurRrZH3geHf47x/Y=",
+        "owner": "Tanish2002",
+        "repo": "bin",
+        "rev": "9c501248b2a1edcf36a5bb878552177e5d27d316",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Tanish2002",
+        "repo": "bin",
+        "type": "github"
+      }
+    },
     "discocss": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -190,6 +206,7 @@
     },
     "root": {
       "inputs": {
+        "bin": "bin",
         "discocss": "discocss",
         "discord-overlay": "discord-overlay",
         "dwm-git": "dwm-git",

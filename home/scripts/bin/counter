@@ -1,7 +1,0 @@
-#!/bin/sh
-tree | grep -i 'Day\\ '$1 | wc -l
-tree | grep -i 'Day'$1 | wc -l
-tree | grep -i 'Day0'$1 | wc -l
-tree | grep -i 'Day-'$1 | wc -l
-
-# echo $(($a + $b + $c + $d))
