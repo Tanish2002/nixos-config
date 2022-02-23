@@ -24,5 +24,8 @@
       userName = "Tanish2002";
       userEmail = "tanishkhare@gmail.com";
     };
+    gpg = {
+      enable = true;
+    };
   };
 }

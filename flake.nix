@@ -60,10 +60,9 @@
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
-
-      hosts.anime.modules = [
-        ./system/configuration.nix
+      hostDefaults.modules = [
         home-manager.nixosModules.home-manager
+        ./system/sharedConfig.nix
         {
           home-manager = {
             users.weeb = import ./home/home.nix;
@@ -85,6 +84,7 @@
           };
         }
       ];
+      hosts.anime.modules = [ ./system/hosts/anime.nix ];
 
     };
 }
