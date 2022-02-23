@@ -61,6 +61,7 @@
     nixfmt
     nixpkgs-fmt
     light
+    git-crypt
   ];
   programs = {
     zsh = {
