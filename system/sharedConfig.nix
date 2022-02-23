@@ -9,7 +9,6 @@
       efi.canTouchEfiVariables = true;
     };
     plymouth.enable = true;
-    initrd.kernelModules = [ "amdgpu" ];
   };
 
   # Time Zone

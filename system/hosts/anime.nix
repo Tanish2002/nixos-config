@@ -14,6 +14,7 @@ in {
     useDHCP = false;
   };
   environment.systemPackages = with pkgs; [ nvidia-offload ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   hardware.nvidia = {
     prime = {
       offload.enable = true;
