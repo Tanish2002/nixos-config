@@ -41,8 +41,8 @@ in {
         };
         work = {
           id = 1;
-          userChrome = (builtins.readFile ./css/userChrome.css);
-          userContent = (builtins.readFile ./css/userContent.css);
+          userChrome = import ./css/userChrome.nix;
+          userContent = import ./css/userContent.nix;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "browser.toolbars.bookmarks.visibility" = "never";
