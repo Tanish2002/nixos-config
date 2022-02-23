@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# http://github.com/mitchweaver/bin
+#
+# nicely display current song from mpvctl (also in bin)
+#
+
+artist=$($HOME/bin/mpvctl -k artist)
+title=$($HOME/bin/mpvctl -k title)
+
+if [ "$artist" != null ] && [ "$title" != null ] ; then
+    printf '%s - %s\n' "$artist" "$title"
+else
+    res=$($HOME/bin/mpvctl -k filename)
+    case $res in
+        *'.'*)
+            # must be a local file
+            printf '%s\n' "$res"
+            ;;
+        *)
+            # youtube watch codes are always 11 chars long
+            if [ ${#res} -eq 11 ] ; then
+	            ytdl=$(youtube-dl -e "http://youtube.com/watch?v=$res" 2>/dev/null)
+	            thumb=$(convert $(youtube-dl --get-thumbnail "https://www.youtube.com/watch?v=$res") /tmp/image.png)
+
+	            [ "$ytdl" ] && printf '%s\n' "$ytdl"
+
+	            [ -f /tmp/playing ] && touch /tmp/playing && var=$(tail -n1 /tmp/playing)
+
+                [ "$var" = "$res" ] || notify-send -i "/tmp/image.png" "${ytdl}"
+                echo "$res" >> /tmp/playing
+            fi
+    esac
+fi
+

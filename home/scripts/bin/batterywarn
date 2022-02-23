@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Set the path to Alarm/Sound
+alarm="$HOME/bin/battery.ogg"
+
+# Notify when below this percentage
+warning_level=11
+
+# How often to check battery status, in minutes
+check_interval=1
+
+while true; do
+  read -r battery_level < "/sys/class/power_supply/BAT0/capacity"
+
+  read -r charging < "/sys/class/power_supply/BAT0/status"
+
+  # When battery is low, and not already charging
+  if [ $battery_level -lt $warning_level ] && [ $charging = "Discharging" ]; then
+    mpv --no-video $alarm & notify-send  "Low battery: ${battery_level}% Plug into mains power " -t 8000
+  fi
+  
+  sleep ${check_interval}m
+ 
+done

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# draw terminals
+
+#get dimensions
+dimensions=$(slop -f %wx%h+%x+%y)
+ 
+[ "$dimensions" != "" ] || exit
+
+#get the wm
+id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+id=${id##* }
+wm=$(xprop -id "$id" -notype -len 25 -f _NET_WM_NAME 8t)
+wm=${wm##*_NET_WM_NAME = \"}
+wm=${wm%%\"*}
+
+case $wm in
+    bspwm)
+        # take borders into account
+        b=$(bspc config border_width)
+
+            w=$((w - 2 * b))
+            h=$((h - 2 * b))
+
+            # make the newly spawned window floating and with the right geometry
+            bspc rule -a \* -o state=floating rectangle="${dimensions}"              
+    
+        tabbed -d -c -r 2 st -w ''
+        ;;
+    dwm)
+        exec tabbed -d -c -g "${dimensions}" -n "draw" -r 2 st -w '' -T "draw" -t "draw"
+        ;;
+esac

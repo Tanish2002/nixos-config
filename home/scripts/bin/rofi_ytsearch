@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# YT_API_KEY
+YT_API_KEY="AIzaSyBb2ILxLmHvPwmTcvDga7lh60055Y-_FPI"
+MAX_RESULTS="20"
+
+[ -z "$1" ] && {
+  printf "Search Video: ";
+  QUERY=$(rofi -dmenu -p "Search YT Video:")
+} || QUERY="$1"
+
+QUERY="$(echo ${QUERY} | tr ' ' '+')"
+printf "$QUERY\n"
+
+URLSTRING="https://www.googleapis.com/youtube/v3/search?part=snippet&q=${QUERY}&type=video&maxResults=${MAX_RESULTS}&key=${YT_API_KEY}"
+
+RESULT="https://$( curl -s "${URLSTRING}" \
+    | jq -r '.items[] | "\(.snippet.channelTitle) => \(.snippet.title) => youtu.be/\(.id.videoId)"' \
+    | rofi -dmenu -columns 1 - -i -p 'Select Video -' \
+    | rev | cut -d" " -f1 | rev \
+)"
+
+[ "${RESULT}" = "https://" ] || mpv "${RESULT}"

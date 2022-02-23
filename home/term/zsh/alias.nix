@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.zsh = {
     shellAliases = {
       ls = "ls --color=auto";
@@ -41,7 +40,8 @@
       tint2rc = "vim ~/.config/tint2/tint2rc";
       stconf = "vim ~/pro/xst/src/config.h";
       playlists = "vim ~/.config/mpv/tubify_playlists";
-      airlinevim = "vim ~/.config/nvim/plugged/vim-airline/autoload/airline/themes/dark.vim";
+      airlinevim =
+        "vim ~/.config/nvim/plugged/vim-airline/autoload/airline/themes/dark.vim";
       quteconf = "vim ~/.config/qutebrowser/config.py";
       picomconf = "vim ~/.config/picom/picom.conf";
       gameoff = "sudo cpufreq-set -g powersave";
