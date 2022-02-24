@@ -11,9 +11,21 @@ in {
   networking = {
     hostName = "anime";
     networkmanager.enable = true;
+    # wireless = {
+    #   enable = true;
+    #   userControlled.enable = true;
+    #   networks = {
+    #     "Tukki_5G" = {
+    #       psk = "";
+    #     };
+    #     "Tukki" = {
+    #       psk = "";
+    #     };
+    #   };
+    # };
     useDHCP = false;
   };
-  environment.systemPackages = with pkgs; [ nvidia-offload ];
+  environment.systemPackages = with pkgs; [ nvidia-offload wpa_supplicant_gui ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   hardware.nvidia = {
     prime = {

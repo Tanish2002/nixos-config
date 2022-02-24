@@ -15,7 +15,7 @@ in {
     text-alt = mkLiteral "#${c7}";
     fg = mkLiteral "#${fg}";
     sel = mkLiteral "#${cc}32";
-    bg-alt = mkLiteral "#${dbg}";
+    bg-alt = mkLiteral "#${bg}";
     bg = mkLiteral "#${bg}";
 
     spacing = 0;
