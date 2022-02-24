@@ -43,7 +43,7 @@ I did this because if one day I decide to go back to some other distro, I can ea
 4. Everything here was made keeping in mind that's it would be easy to understand for beginners. But if you still can't understand anything feel free to open a issue or contact me on [Discord](https://discordapp.com/users/402000088211128321)
 
 ## Configs/Sites I ~~Stole~~ Borrowed from:
-[fortunetell2k[](https://github.com/fortuneteller2k/nix-config)<br /> 
+[fortunetell2k](https://github.com/fortuneteller2k/nix-config)<br /> 
 [Nobbz](https://github.com/NobbZ/nixos-config) -> Special Thanks to them, They really helped me a lot on the nix discord server.<br /> 
 [LegendOfMiracles](https://github.com/legendofmiracles/dotnix)<br /> 
 [Github Search](https://github.com/search?q=language%3ANix&type=Code&ref=advsearch&l=Nix&l=)<br /> 
