@@ -25,7 +25,7 @@ in {
     #     };
     #   };
     # };
-    useDHCP = true;
+    useDHCP = false;
   };
   environment.systemPackages = with pkgs; [ nvidia-offload wpa_supplicant_gui ];
   boot.initrd.kernelModules = [ "amdgpu" ];
