@@ -35,12 +35,12 @@ This is my config of NixOS
 ## Additional Notes
 1. Remove 'ssh' import from `./home/dev/default.nix` because the keys I use are encrypted and shouldn't be of use to you anyway.
 
-2. Most of my Config is dependant on [Home Manager](https://github.com/nix-community/home-manager). So you can probably set it up some other distro with some modifications using HM and nix.
-I did this because if one day I decide to go back to some other distro, I can easily install nix and HM replicate get most of my config easily.
+2. Most of my Config is dependant on [Home Manager](https://github.com/nix-community/home-manager). So you can probably set it up some other distro with some modifications using HM and nix.<br />
+I did this because if one day I decide to go back to some other distro, I can easily install nix and HM and get most of my config easily.
 
-3. This config is by no means perfect and if you find a bug or something that can be improved please do tell me.
+1. This config is by no means perfect and if you find a bug or something that can be improved please do tell me.
 
-4. Everything here was made keeping in mind that's it would be easy to understand for beginners. But if you still can't understand anything feel free to open a issue or contact me on [Discord](https://discordapp.com/users/402000088211128321)
+2. Everything here was made keeping in mind that's it would be easy to understand for beginners. But if you still can't understand anything feel free to open a issue or contact me on [Discord](https://discordapp.com/users/402000088211128321)
 
 ## Configs/Sites I ~~Stole~~ Borrowed from:
 [Nobbz](https://github.com/NobbZ/nixos-config) -> Special Thanks to them, They really helped me a lot on the nix discord server.<br /> 
