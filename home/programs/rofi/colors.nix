@@ -31,7 +31,7 @@ in {
   "window" = {
     transparency = "real";
     fullscreen = true;
-    background-color = mkLiteral "@bg";
+    background-color = mkLiteral "#${lbg}cc";
     width = mkLiteral "400px";
     border-color = mkLiteral "@red";
     border = mkLiteral "0px";
