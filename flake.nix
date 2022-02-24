@@ -60,6 +60,8 @@
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
+      sharedOverlays = [ (import ./overlays) ];
+
       hostDefaults.modules = [
         home-manager.nixosModules.home-manager
         ./system/sharedConfig.nix
@@ -85,6 +87,5 @@
         }
       ];
       hosts.anime.modules = [ ./system/hosts/anime.nix ];
-
     };
 }

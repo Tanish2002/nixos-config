@@ -8,7 +8,11 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      themePackages = [ pkgs.plymouth-themes ];
+      theme = "blockchain";
+    };
   };
 
   # Time Zone
