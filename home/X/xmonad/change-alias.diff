@@ -1,5 +1,5 @@
 diff --git a/src/Apps/Alias.hs b/src/Apps/Alias.hs
-index 7fa16a9..6caaf1b 100644
+index 104c111..3303f3d 100644
 --- a/src/Apps/Alias.hs
 +++ b/src/Apps/Alias.hs
 @@ -6,16 +6,16 @@
@@ -23,18 +23,3 @@ index 7fa16a9..6caaf1b 100644
  
  cursor :: String
  cursor = "xsetroot -cursor_name left_ptr &"
-diff --git a/src/Bind/KeyBoard.hs b/src/Bind/KeyBoard.hs
-index 676a37f..8347d02 100644
---- a/src/Bind/KeyBoard.hs
-+++ b/src/Bind/KeyBoard.hs
-@@ -149,8 +149,8 @@ keyboard = concat [ customBindings, wmBindings, multimediaBindings] --, workspac
-         , ("<XF86AudioMute>",   spawn "amixer set Master toggle")
-         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%-")
-         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+")
--        , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
--        , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
-+        , ("<XF86MonBrightnessUp>", spawn "light -A 10")
-+        , ("<XF86MonBrightnessDown>", spawn "light -U 10")
-         , ("<Print>", spawn "$HOME/bin/screenshot-menu.sh")
-         ]
- 

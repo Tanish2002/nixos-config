@@ -1,3 +1,4 @@
 { pkgs, ... }: { imports = [ ./gtk ./cursor ];
-home.packages = [ pkgs.nerdfonts ];
+nixpkgs.config.joypixels.acceptLicense = true;
+home.packages = [ pkgs.nerdfonts pkgs.joypixels ];
 }

@@ -63,7 +63,6 @@
     git
     nixfmt
     nixpkgs-fmt
-    light
     git-crypt
   ];
   programs = {
@@ -73,6 +72,7 @@
         false; # I'm enabling it in Home-manager config so I disable it here so compinit isn't called twice.
     };
     dconf.enable = true;
+    light.enable = true;
   };
   services.openssh.enable = true;
 

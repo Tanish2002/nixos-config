@@ -20,9 +20,6 @@ in {
 
     spacing = 0;
     background-color = mkLiteral "transparent";
-
-    font = "Iosevka Term 14";
-
     text-color = mkLiteral "@text";
     border-color = mkLiteral "@red";
 
