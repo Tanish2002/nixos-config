@@ -9,7 +9,7 @@ This is my config of NixOS
 
 2. Switch to root user: `sudo su -`
 
-3. Do your partitions and mount your root partition to `/mnt`(reference: [Here](https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning)
+3. Do your partitions and mount your root partition to `/mnt`(reference: [Here](https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning))
 
 4. Clone this repo:
    ```sh
