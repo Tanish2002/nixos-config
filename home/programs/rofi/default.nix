@@ -3,14 +3,13 @@
     rofi = {
       enable = true;
       package = pkgs.unstable.rofi;
-      font = "Iosevka Term 14";
+      font = "Iosevka Term, JoyPixels 14";
       terminal = "${pkgs.st-tanish2002}/bin/st";
       extraConfig = {
         modi = "run,ssh,drun";
         columns = 2;
         disable-history = false;
         hide-scrollbar = true;
-        icon-theme = "JoyPixels";
       };
       theme = import ./colors.nix { inherit config theme;};
     };
