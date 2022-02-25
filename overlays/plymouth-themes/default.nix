@@ -1,10 +1,11 @@
 { stdenv, lib, fetchFromGitHub }:
-let
-  pack = "pack_1";
-  theme = "blockchain";
-in stdenv.mkDerivation rec {
+
+stdenv.mkDerivation rec {
   pname = "adi1090x-plymouth";
   version = "0.0.1";
+
+  pack = "pack_1";
+  theme = "blockchain";
 
   src = fetchFromGitHub {
     owner = "adi1090x";
