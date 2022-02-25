@@ -19,7 +19,7 @@
     font = [
       "VictorMono Nerd Font Mono:style=Bold:size=12;3"
       "FontAwesome:style=Regular:pixelsize=12;3"
-      "Osaka-Mono:style=Regular-Mono:pixelsize=12;3"
+      "Kochi Gothic:style=Regular-Mono:pixelsize=12;3"
       "Font Awesome 5 Brands:pixelsize=12;3"
     ];
     #font-0 = VictorMono Nerd Font Mono:style=Bold:size=12;3

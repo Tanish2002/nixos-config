@@ -3,11 +3,11 @@
     "bin": {
       "flake": false,
       "locked": {
-        "lastModified": 1645719055,
-        "narHash": "sha256-bezx+AU8mBX1hFHPFYrPTb229RnqyCqpp9cB4IG+AYk=",
+        "lastModified": 1645793521,
+        "narHash": "sha256-H8Q+wA+W0lmgZruTYIwD01FGTyFuhV8vid4gsGM5Vds=",
         "owner": "Tanish2002",
         "repo": "bin",
-        "rev": "64257c6a37bd26ed3f5c6419280f4759a68b762c",
+        "rev": "fe10690660a1f4c762121332b183a0780387d2a9",
         "type": "github"
       },
       "original": {
@@ -159,11 +159,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1645675667,
-        "narHash": "sha256-ZCRO9zrswTlH8Oa+4VnaDYSb4XfRJt7mGizZ51QvDLM=",
+        "lastModified": 1645791524,
+        "narHash": "sha256-34Tfc1r4zCt1sTQoe4IyNjG7yuTDZXKg0Z6qRoaTyWA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "56d2eccbdd80d84139e35f48f9b272e7c704f8cc",
+        "rev": "224c43b5bf9d15aef517bb0c50be2b4885d1d73c",
         "type": "github"
       },
       "original": {
