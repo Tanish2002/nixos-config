@@ -1,3 +1,3 @@
-{ pkgs, ... }: { imports = [ ./gtk ];
+{ pkgs, ... }: { imports = [ ./gtk ./cursor ];
 home.packages = [ pkgs.nerdfonts ];
 }
