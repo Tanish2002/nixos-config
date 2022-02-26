@@ -13,8 +13,9 @@ This is my config of NixOS
 
 4. Clone this repo:
    ```sh
+   sudo su -
    nix-shell -p git nixFlakes
-   git clone https://github.com/hlissner/dotfiles /mnt/etc/nixos
+   git clone https://github.com/Tanish2002/nixos-config /mnt/etc/nixos
    cd /mnt/etc/nixos
    
    # Remove my hardware config
