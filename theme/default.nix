@@ -1,1 +1,1 @@
-rec { colors = import ./flower.nix; }
+rec { config = import ./flower.nix; }

@@ -1,5 +1,5 @@
 { pkgs, inputs, theme, ... }: {
-  gtk = with theme.colors; {
+  gtk = with theme.config; {
     enable = true;
     theme = let
       phocus = pkgs.stdenvNoCC.mkDerivation {

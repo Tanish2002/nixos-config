@@ -1,13 +1,9 @@
 diff --git a/src/Apps/Alias.hs b/src/Apps/Alias.hs
-index 104c111..3303f3d 100644
+index 7fa16a9..28f6e1a 100644
 --- a/src/Apps/Alias.hs
 +++ b/src/Apps/Alias.hs
-@@ -6,16 +6,16 @@
- module Apps.Alias where
- 
- battery :: String
--battery = "~/bin/batterywarn"
-+battery = "$HOME/bin/batterywarn"
+@@ -9,10 +9,10 @@ battery :: String
+ battery = "~/bin/batterywarn"
  
  compositor :: String
 -compositor = "picom --config ~/.config/picom/picom.conf"
@@ -18,8 +14,13 @@ index 104c111..3303f3d 100644
 +bar = "DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1) polybar -r main &"
  
  wallpaper :: String
--wallpaper = "~/.fehbg"
-+wallpaper = "feh --bg-fill $HOME/Wallpapers/flower.jpg"
- 
- cursor :: String
+ wallpaper = "~/.fehbg"
+@@ -21,7 +21,7 @@ cursor :: String
  cursor = "xsetroot -cursor_name left_ptr &"
+ 
+ xresource :: String
+-xresource = "xrdb -remove && xrdb $HOME/xrdb/cute/cute"
++xresource = "xrdb -remove && xrdb $HOME/.Xresources"
+ 
+ myterm :: String
+ myterm = "st"

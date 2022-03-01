@@ -1,5 +1,5 @@
 { theme, config }:
-with theme.colors;
+with theme.config;
 let inherit (config.lib.formats.rasi) mkLiteral;
 in {
   "*" = {

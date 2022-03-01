@@ -1,5 +1,5 @@
 { pkgs, theme, ... }:
-with theme.colors;
+with theme.config;
  {
   services.dunst = {
     enable = true;

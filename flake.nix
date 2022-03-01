@@ -86,6 +86,6 @@
           };
         }
       ];
-      hosts.anime.modules = [ ./system/hosts/anime.nix ];
+      hosts.anime.modules = [ ./system/hosts/anime ];
     };
 }

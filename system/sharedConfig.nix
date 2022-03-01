@@ -30,7 +30,6 @@
     xserver = {
       enable = true;
       layout = "us";
-      videoDrivers = [ "nvidia" ];
 
       # Touchpad
       libinput = {
@@ -38,8 +37,7 @@
         touchpad.tapping = false;
       };
 
-      # Window Manager
-      windowManager.xmonad.enable = true;
+      # Display Manager
       displayManager.sx.enable = true;
     };
   };

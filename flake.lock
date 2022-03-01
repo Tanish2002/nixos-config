@@ -143,11 +143,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1645652565,
-        "narHash": "sha256-yVQN2Wi8xSSpuj6JTck/6IOJ40hNvmoReMvFY86xd9w=",
+        "lastModified": 1646011258,
+        "narHash": "sha256-+aen4zu5uVp52arEcgL2maCS0zQDuG1t+Azwd/O1gN4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4275a321beab5a71872fb7a5fe5da511bb2bec73",
+        "rev": "a25df4c2b79c4343bcc72ad671200e5a3e286c41",
         "type": "github"
       },
       "original": {
@@ -159,11 +159,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1645791524,
-        "narHash": "sha256-34Tfc1r4zCt1sTQoe4IyNjG7yuTDZXKg0Z6qRoaTyWA=",
+        "lastModified": 1646137100,
+        "narHash": "sha256-60lcmQFZndRyOEMSElMFL4u0Za4r1ZGS1VGDutkriGM=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "224c43b5bf9d15aef517bb0c50be2b4885d1d73c",
+        "rev": "0d53b8ef088ca8b00695b5b0b4840070d060dfb6",
         "type": "github"
       },
       "original": {
@@ -309,11 +309,11 @@
     "xmonad-git": {
       "flake": false,
       "locked": {
-        "lastModified": 1645520881,
-        "narHash": "sha256-ELfdV6AW15N40RK4WMhmF6+hj4tsf0yaxbRddf7VLPU=",
+        "lastModified": 1646128784,
+        "narHash": "sha256-PyTXeQfnaTiEc9MH2I105nXWNQ1r41gNX4gTr+DLfNI=",
         "owner": "Tanish2002",
         "repo": "xmonad-tanish2002",
-        "rev": "d9ca543f785a33cfd3e2b63a979012f9c6b7595e",
+        "rev": "e62caf191b1da35400e5333839ab4ae3224c38c5",
         "type": "github"
       },
       "original": {

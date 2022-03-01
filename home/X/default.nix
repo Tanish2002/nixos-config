@@ -1,5 +1,5 @@
 { theme, ... }:
-with theme.colors; {
+with theme.config; {
   imports = [ ./dwm ./xmonad ];
   xresources.extraConfig = ''
     st.alpha: 1

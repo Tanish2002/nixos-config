@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, theme, ... }:
 let
   drv = pkgs.haskellPackages.callCabal2nix "xmonad-tanish2002" inputs.xmonad-git
     { };
@@ -8,8 +8,14 @@ in {
       haskellPackages = prev.haskellPackages.override (old: {
         overrides = prev.lib.composeExtensions (old.overrides or (_: _: { }))
           (self: super: rec {
-            xmonad-tanish2002 =
-              drv.overrideAttrs (o: { patches = [ ./change-alias.diff ]; });
+            xmonad-tanish2002 = drv.overrideAttrs (o: {
+              postPatch = ''
+                substituteInPlace src/Apps/Alias.hs \
+                --replace '~/.fehbg' '${pkgs.feh}/bin/feh --bg-fill $HOME/Wallpapers/${theme.config.wallpaper}' \
+              '';
+              patches = [ ./change-alias.diff ];
+
+            });
           });
       });
     })
