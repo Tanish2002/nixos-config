@@ -1,4 +1,4 @@
-{ theme }: {
+{ pkgs, theme }: {
   "colours" = {
     background = {
       text = "#090909";
@@ -22,10 +22,6 @@
       "Kochi Gothic:style=Regular-Mono:pixelsize=12;3"
       "Font Awesome 5 Brands:pixelsize=12;3"
     ];
-    #font-0 = VictorMono Nerd Font Mono:style=Bold:size=12;3
-    #font-1 = FontAwesome:style=Regular:pixelsize=12;3  
-    #font-2 = Osaka-Mono:style=Regular-Mono:pixelsize=12;3
-    #font-3 = Font Awesome 5 Brands:pixelsize=12;3
 
     enable.ipc = true;
 
@@ -35,14 +31,10 @@
     fixed.center = true;
     line.size = 2;
 
-    tray.position = "left";
-    #;tray-detached = true;
-    #;tray-maxsize = 16;
-    #tray-background = "#121212";
-    #;tray-offset-x = 0;
-    #;tray-offset-y = 0;
-    #;tray-padding = 1;
-
+    tray = {
+      position = "left";
+      background = "#121212";
+    };
     background = "#090909";
     foreground = "#f55966";
 
@@ -91,11 +83,6 @@
         padding = 1;
       };
     };
-
-    # ; Separator in between workspaces
-    # ;label-separator = |
-    # ;label-separator-padding = 10
-    # ;label-separator-foreground = #ffb52a
   };
 
   "module/battery" = {
@@ -151,7 +138,6 @@
         "%{F#355957}%{F-}"
         "%{F#355957}%{F-}"
       ];
-      #; Framerate in milliseconds
       framerate = 750;
     };
   };
@@ -218,25 +204,25 @@
     type = "custom/script";
 
     exec = {
-      text = "tail -F /tmp/xmonad-layout-name";
+      text = "${pkgs.coreutils}/bin/tail -F /tmp/xmonad-layout-name";
       "if" = "[ -p /tmp/xmonad-layout-name ]";
     };
     tail = true;
     format = {
       text = "<label>";
-      background = "#121212";
+      background = "#090909";
       foreground = "f55966";
       padding = 1.5;
     };
 
-    click.left = "sleep 0.1; xdotool key Super+space";
+    click.left = "sleep 0.1; ${pkgs.xdotool}/bin/xdotool key Super+space";
     label.text = "%output%";
   };
   "module/mpv" = {
     type = "custom/script";
     exec = {
-      text = "/bin/sh -c $HOME/bin/song-name";
-      "if" = "pgrep -x mpv";
+      text = "${pkgs.scripts}/bin/song-name";
+      "if" = "${pkgs.procps}/bin/pgrep -x mpv";
     };
     format = {
       text = "<label>";
@@ -246,8 +232,8 @@
       background = "#E087A9";
     };
     click = {
-      left = "mpvctl -t";
-      right = "mpvctl -q";
+      left = "${pkgs.scripts}/bin/mpvctl -t";
+      right = "${pkgs.scripts}/bin/mpvctl -q";
     };
 
     label = {
@@ -269,12 +255,13 @@
       [ # 0
         { # 0-0
           text = "";
-          exec = "sleep 0.1; betterlockscreen -l dimblur";
+          exec =
+            "sleep 0.1; ${pkgs.betterlockscreen}/bin/betterlockscreen -l dimblur";
         }
         { # 0-1
           text = "";
           exec =
-            "notify-send 'Logging Out' && sleep 1 && kill -15 $(pidof Xorg)";
+            "${pkgs.libnotify}/bin/notify-send 'Logging Out' && sleep 1 && kill -15 $(pidof Xorg)";
         }
         { # 0-2
           text = "";
@@ -285,11 +272,12 @@
         { # 1-0
           text = "PowerOFF";
           exec =
-            "notify-send ' Shutting Down ' && sleep 1 && sudo shutdown -P now";
+            "${pkgs.libnotify}/bin/notify-send ' Shutting Down ' && sleep 1 && sudo shutdown -P now";
         }
         { # 1-1
           text = "Reboot";
-          exec = "notify-send ' Rebooting ' && sleep 1 && sudo reboot";
+          exec =
+            "${pkgs.libnotify}/bin/notify-send ' Rebooting ' && sleep 1 && sudo reboot";
         }
       ]
     ];
@@ -302,8 +290,8 @@
   "module/vpn" = {
     type = "custom/script";
     exec = {
-      text = "echo vpn";
-      "if" = "pgrep -x openvpn";
+      text = "${pkgs.coreutils}/bin/echo vpn";
+      "if" = "${pkgs.procps}/bin/pgrep -x openvpn";
     };
     interval = 5;
     format = {

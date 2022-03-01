@@ -26,7 +26,8 @@
     };
     bin = {
       url = "github:Tanish2002/bin";
-      flake = false;
+      #flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     phocus = {
       url = "github:Tanish2002/gtk";

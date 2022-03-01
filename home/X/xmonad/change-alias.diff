@@ -1,5 +1,5 @@
 diff --git a/src/Apps/Alias.hs b/src/Apps/Alias.hs
-index 7fa16a9..28f6e1a 100644
+index 7fa16a9..64a3b39 100644
 --- a/src/Apps/Alias.hs
 +++ b/src/Apps/Alias.hs
 @@ -9,10 +9,10 @@ battery :: String
@@ -11,7 +11,7 @@ index 7fa16a9..28f6e1a 100644
  
  bar :: String
 -bar = "~/.config/polybar/launch.sh"
-+bar = "DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1) polybar -r main &"
++bar = "systemctl --user restart polybar.service"
  
  wallpaper :: String
  wallpaper = "~/.fehbg"

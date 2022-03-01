@@ -6,7 +6,7 @@
     dotDir = ".config/zsh";
     sessionVariables = {
       PATH =
-        "\${HOME}/bin:\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
+        "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
       #      GIT_SSH_COMMAND =
       #        "ssh -i $HOME/.config/ssh/key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
       EDITOR = "nvim";

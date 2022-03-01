@@ -1,13 +1,17 @@
 {
   "nodes": {
     "bin": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1645793521,
-        "narHash": "sha256-H8Q+wA+W0lmgZruTYIwD01FGTyFuhV8vid4gsGM5Vds=",
+        "lastModified": 1646169720,
+        "narHash": "sha256-mi05lfLy6dPyBPPMGtRek1MaYOfQi3n2Vb0RMcy2E/k=",
         "owner": "Tanish2002",
         "repo": "bin",
-        "rev": "fe10690660a1f4c762121332b183a0780387d2a9",
+        "rev": "d9d43d42037b5b0a078caba0a662f52ba2bb2117",
         "type": "github"
       },
       "original": {
@@ -159,11 +163,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1646137100,
-        "narHash": "sha256-60lcmQFZndRyOEMSElMFL4u0Za4r1ZGS1VGDutkriGM=",
+        "lastModified": 1646158169,
+        "narHash": "sha256-MCZe/mDI9CWbLwS/CwK33Gr1m/5JTI3Qo182Y70ZBUc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "0d53b8ef088ca8b00695b5b0b4840070d060dfb6",
+        "rev": "a987395f66b630dff8cc616818dacfff6dc2dfb1",
         "type": "github"
       },
       "original": {
