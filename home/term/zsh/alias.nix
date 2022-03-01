@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  home.packages = [ pkgs.cpufrequtils ];
   programs.zsh = {
     shellAliases = {
       ls = "ls --color=auto";
