@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   imports = [ ./virtualization ];
   networking = {
     hostName = "anime";
