@@ -21,8 +21,8 @@
       };
     };
     picom-git = {
-      url = "github:Tanish2002/picom?submodules=1";
-      flake = false;
+      url = "github:Tanish2002/picom";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {
       url = "github:Tanish2002/wallpapers";
@@ -46,7 +46,7 @@
     };
     xmonad-tanish2002 = {
       url = "github:Tanish2002/xmonad-tanish2002";
-      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     tabbed-git = {
       url = "github:Tanish2002/tabbed-tanish2002";

@@ -163,22 +163,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1646011258,
-        "narHash": "sha256-+aen4zu5uVp52arEcgL2maCS0zQDuG1t+Azwd/O1gN4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "a25df4c2b79c4343bcc72ad671200e5a3e286c41",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur": {
       "locked": {
         "lastModified": 1646188350,
@@ -211,13 +195,17 @@
       }
     },
     "picom-git": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1609172631,
-        "narHash": "sha256-YZU10XVeAyKIkk4TlU+Od525JGfcfEgPYSzZVW/8SKI=",
+        "lastModified": 1646220514,
+        "narHash": "sha256-oWDn+t1CwBmq/x6v/1oha3rTiow3Q0cLmiWBqy7wv1A=",
         "owner": "Tanish2002",
         "repo": "picom",
-        "rev": "9221921f9fbcad197ed6241dcfbe32d361842d6a",
+        "rev": "5322772f88fa664e4f4943c3de19f0fd98d53ef7",
         "type": "github"
       },
       "original": {
@@ -331,17 +319,16 @@
     },
     "xmonad-tanish2002": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1646217815,
-        "narHash": "sha256-KrSFk5ESqE+YLJUOPN0oyi9sSZOxL0QsZhbyin91wsU=",
+        "lastModified": 1646220321,
+        "narHash": "sha256-A1Mme3JTsiSlaHWlXvWnnh1R6YBHGCpfHTOeqfZW/5E=",
         "owner": "Tanish2002",
         "repo": "xmonad-tanish2002",
-        "rev": "b034b209c03e103844e5d0775fe0a00b1fd3c219",
+        "rev": "735a45d138a7acdae0ab36e1c1836f6eda40c98d",
         "type": "github"
       },
       "original": {

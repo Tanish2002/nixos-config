@@ -4,10 +4,7 @@
       enable = true;
       backend = "glx";
       experimentalBackends = true;
-      package = pkgs.picom.overrideAttrs (o: {
-        src = inputs.picom-git;
-        buildInputs = o.buildInputs ++ [ pkgs.xorg.xcbutilwm ];
-      });
+      package = inputs.picom-git.defaultPackage.x86_64-linux;
       # Shadows
       shadow = false;
       shadowOffsets = [ 10 10 ];
