@@ -1,15 +1,14 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs; [
-      vscode-extensions.bbenoist.nix
-      vscode-extensions.brettm12345.nixfmt-vscode
-      vscode-extensions.jnoortheen.nix-ide
-      vscode-extensions.dracula-theme.theme-dracula
-      vscode-extensions.pkief.material-icon-theme
-      vscode-extensions.golang.go
+    package = pkgs.vscode;
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+      brettm12345.nixfmt-vscode
+      jnoortheen.nix-ide
+      dracula-theme.theme-dracula
+      pkief.material-icon-theme
+      golang.go
     ];
   };
-  home.packages = with pkgs; [ rnix-lsp ];
 }

@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ./vscode ./ssh];
+  imports = [ ./vscode ./ssh ];
   programs = {
     git = {
       enable = true;
@@ -7,4 +7,6 @@
       userEmail = "tanishkhare@gmail.com";
     };
   };
+  # LSP
+  home.packages = with pkgs; [ rnix-lsp ];
 }
