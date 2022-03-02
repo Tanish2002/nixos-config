@@ -13,6 +13,10 @@
       url = "github:InternetUnexplorer/discord-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    comma = {
+      url = "github:nix-community/comma";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     discocss = {
       url = "github:mlvzk/discocss/flake";
       inputs = {

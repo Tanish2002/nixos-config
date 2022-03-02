@@ -4,7 +4,11 @@
   home = {
     username = "weeb";
     homeDirectory = "/home/weeb";
-    packages = with pkgs; [ gnome.file-roller kochi-substitute ];
+    packages = with pkgs; [
+      gnome.file-roller
+      kochi-substitute
+      inputs.comma.defaultPackage.x86_64-linux
+    ];
     sessionVariables = { MOZ_DBUS_REMOTE = 1; };
   };
   home.stateVersion = "21.11";

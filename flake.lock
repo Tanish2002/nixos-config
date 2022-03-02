@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "comma": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1645081562,
+        "narHash": "sha256-iSkHFMgYh31UDFZ5BZ9AHBivdgO0n2iCrYKjwAWxXvY=",
+        "owner": "nix-community",
+        "repo": "comma",
+        "rev": "54149dc417819af14ddc0d59216d4add5280ad14",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "comma",
+        "type": "github"
+      }
+    },
     "discocss": {
       "inputs": {
         "flake-utils": [
@@ -51,11 +71,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1645124431,
-        "narHash": "sha256-ssLxm54F5RnSa+jhVl/sbutA3w5vWPu5peVo7m16tGY=",
+        "lastModified": 1646242233,
+        "narHash": "sha256-IFhwvW5MndzAr50oxCZPXOrMggOkUQ5MLESCXRf4Oho=",
         "owner": "InternetUnexplorer",
         "repo": "discord-overlay",
-        "rev": "44e7641a51a6df2368e6de1cfbe10a3a92686fd1",
+        "rev": "afcd969eb67feb348b5feec702daa614a731a2e2",
         "type": "github"
       },
       "original": {
@@ -169,11 +189,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1646188350,
-        "narHash": "sha256-EL6N9Rc6pL/6GQC7PPh/wh8DHwuzBvHvL0XWGsErSXw=",
+        "lastModified": 1646232638,
+        "narHash": "sha256-gwoo6qTYv40KlqSxSP3rDcer6nE/rXET22SaQJgZi9o=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "d70f39715a6f44d0148a6272fceeec4e13ce790e",
+        "rev": "5d3fb922b461e9a9123334e71a0449ba359c6f75",
         "type": "github"
       },
       "original": {
@@ -221,6 +241,7 @@
     "root": {
       "inputs": {
         "bin": "bin",
+        "comma": "comma",
         "discocss": "discocss",
         "discord-overlay": "discord-overlay",
         "dwm-tanish2002": "dwm-tanish2002",
