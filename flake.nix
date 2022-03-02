@@ -4,6 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
+    flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager/release-21.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +15,10 @@
     };
     discocss = {
       url = "github:mlvzk/discocss/flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     picom-git = {
       url = "github:Tanish2002/picom?submodules=1";
@@ -26,7 +30,6 @@
     };
     bin = {
       url = "github:Tanish2002/bin";
-      #flake = false;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     phocus = {
@@ -41,9 +44,9 @@
       url = "github:Tanish2002/st-tanish2002";
       flake = false;
     };
-    xmonad-git = {
+    xmonad-tanish2002 = {
       url = "github:Tanish2002/xmonad-tanish2002";
-      flake = false;
+      inputs.flake-utils.follows = "flake-utils";
     };
     tabbed-git = {
       url = "github:Tanish2002/tabbed-tanish2002";

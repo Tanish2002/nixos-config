@@ -1,29 +1,20 @@
-{ inputs, pkgs, theme, ... }:
-let
-  drv = pkgs.haskellPackages.callCabal2nix "xmonad-tanish2002" inputs.xmonad-git
-    { };
-in {
+{ inputs, pkgs, theme, ... }: {
   nixpkgs.overlays = [
     (final: prev: rec {
-      haskellPackages = prev.haskellPackages.override (old: {
-        overrides = prev.lib.composeExtensions (old.overrides or (_: _: { }))
-          (self: super: rec {
-            xmonad-tanish2002 = drv.overrideAttrs (o: {
-              postPatch = ''
-                substituteInPlace src/Apps/Alias.hs \
-                --replace '~/.fehbg' '${pkgs.feh}/bin/feh --bg-fill $HOME/Wallpapers/${theme.config.wallpaper}' \
-              '';
-              patches = [ ./change-alias.diff ];
-
-            });
-          });
-      });
+      xmonad-tanish2002 =
+        inputs.xmonad-tanish2002.defaultPackage.x86_64-linux.overrideAttrs (o: {
+          patches = [ ./change-alias.diff ];
+          postPatch = ''
+            substituteInPlace src/Apps/Alias.hs \
+            --replace '~/.fehbg' '${pkgs.feh}/bin/feh --bg-fill $HOME/Wallpapers/${theme.config.wallpaper}' \
+          '';
+        });
     })
   ];
-  home.packages = [ pkgs.haskellPackages.xmonad-tanish2002 ];
+  home.packages = [ pkgs.xmonad-tanish2002 ];
   xsession = {
     enable = true;
     windowManager.command =
-      "${pkgs.haskellPackages.xmonad-tanish2002}/bin/xmonad";
+      "${pkgs.xmonad-tanish2002}/bin/xmonad";
   };
 }
