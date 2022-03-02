@@ -64,14 +64,18 @@
         "type": "github"
       }
     },
-    "dwm-git": {
-      "flake": false,
+    "dwm-tanish2002": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1638791020,
-        "narHash": "sha256-Tasd+0Cd7aBx7+VRQpbn+cGKVi8Eh6qtxn2I1g7fZks=",
+        "lastModified": 1646221363,
+        "narHash": "sha256-dUVrfNJO+PvNimPdHBjHWSBqaSmJZey/Ue62NkqR5Qo=",
         "owner": "Tanish2002",
         "repo": "dwm-tanish2002",
-        "rev": "640caa5049073cde0bbe80ad7dade6acb86e20e0",
+        "rev": "92bc2a6065616184deeeb7b71b5a71296a2ba794",
         "type": "github"
       },
       "original": {
@@ -194,7 +198,7 @@
         "type": "github"
       }
     },
-    "picom-git": {
+    "picom-phisch": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -219,30 +223,34 @@
         "bin": "bin",
         "discocss": "discocss",
         "discord-overlay": "discord-overlay",
-        "dwm-git": "dwm-git",
+        "dwm-tanish2002": "dwm-tanish2002",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nix-zsh-completions": "nix-zsh-completions",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "phocus": "phocus",
-        "picom-git": "picom-git",
-        "st-git": "st-git",
-        "tabbed-git": "tabbed-git",
+        "picom-phisch": "picom-phisch",
+        "st-tanish2002": "st-tanish2002",
+        "tabbed-tanish2002": "tabbed-tanish2002",
         "unstable": "unstable",
         "utils": "utils",
         "wallpapers": "wallpapers",
         "xmonad-tanish2002": "xmonad-tanish2002"
       }
     },
-    "st-git": {
-      "flake": false,
+    "st-tanish2002": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1608134728,
-        "narHash": "sha256-mj2qVHDYgqaB9ghztgmKUVHmo9ffxo/H3rgXWLpA1B8=",
+        "lastModified": 1646221587,
+        "narHash": "sha256-37ifQmzbZvMcRcJ1Q/kXNvi/cD2vUH/zzRuw0aj8DMc=",
         "owner": "Tanish2002",
         "repo": "st-tanish2002",
-        "rev": "15d62189db322c5cbc223a77a45954742a10428a",
+        "rev": "e86265b3f3c2581705b5c7ae5513b4f40036e180",
         "type": "github"
       },
       "original": {
@@ -251,14 +259,18 @@
         "type": "github"
       }
     },
-    "tabbed-git": {
-      "flake": false,
+    "tabbed-tanish2002": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1584798198,
-        "narHash": "sha256-OaAWj80kLV8F8T04/kXIODM40ocbAxbxSpyRDOoQJ7o=",
+        "lastModified": 1646221741,
+        "narHash": "sha256-6rkMVzus0UHrdnbT97KV3ii/xG0gIWfJSIp+gHBUM/4=",
         "owner": "Tanish2002",
         "repo": "tabbed-tanish2002",
-        "rev": "0b80826a0b9d09d0e2950bab0ebebf7de3360e6d",
+        "rev": "961aa0b146dfcd908c5269c0da5d7e89df3a0848",
         "type": "github"
       },
       "original": {

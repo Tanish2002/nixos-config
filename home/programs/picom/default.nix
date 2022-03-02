@@ -4,7 +4,7 @@
       enable = true;
       backend = "glx";
       experimentalBackends = true;
-      package = inputs.picom-git.defaultPackage.x86_64-linux;
+      package = inputs.picom-phisch.defaultPackage.x86_64-linux;
       # Shadows
       shadow = false;
       shadowOffsets = [ 10 10 ];

@@ -20,7 +20,7 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    picom-git = {
+    picom-phisch = {
       url = "github:Tanish2002/picom";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -36,21 +36,21 @@
       url = "github:Tanish2002/gtk";
       flake = false;
     };
-    dwm-git = {
+    dwm-tanish2002 = {
       url = "github:Tanish2002/dwm-tanish2002";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    st-git = {
+    st-tanish2002 = {
       url = "github:Tanish2002/st-tanish2002";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     xmonad-tanish2002 = {
       url = "github:Tanish2002/xmonad-tanish2002";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tabbed-git = {
+    tabbed-tanish2002 = {
       url = "github:Tanish2002/tabbed-tanish2002";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-zsh-completions = {
       url = "github:spwhitt/nix-zsh-completions";
