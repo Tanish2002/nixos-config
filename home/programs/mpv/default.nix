@@ -2,6 +2,11 @@
   programs = {
     mpv = {
       enable = true;
+      package = pkgs.wrapMpv
+        (pkgs.mpv-unwrapped.override {
+          sixelSupport = true;
+        })
+        { youtubeSupport = true; };
       config = { input-ipc-server = "/tmp/mpvsocket"; };
     };
   };
