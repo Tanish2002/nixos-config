@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [ ./virtualization ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   networking = {
     hostName = "anime";
     networkmanager.enable = true;
