@@ -8,5 +8,19 @@
     };
   };
   # LSP
-  home.packages = with pkgs; [ rnix-lsp ];
+  home.packages = with pkgs; [
+    # Nix
+    rnix-lsp
+    # Misc
+    postman
+    # Rust
+    rustup
+    rust-analyzer
+    # Golang
+    go
+    gopls
+    # Python
+    python39
+    python39Packages.python-lsp-server
+    ];
 }
