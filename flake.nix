@@ -2,11 +2,12 @@
   description = "Epic Nixos Config";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixpkgs-2105.url = "github:nixos/nixpkgs/nixos-21.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      url = "github:nix-community/home-manager/release-21.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     discord-overlay = {
@@ -36,6 +37,10 @@
       url = "github:Tanish2002/bin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:pta2002/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     phocus = {
       url = "github:Tanish2002/gtk";
       flake = false;
@@ -62,9 +67,8 @@
     };
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
-
-  outputs =
-    inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
+    , nixvim, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
@@ -78,6 +82,7 @@
             users.weeb = import ./home/home.nix;
             sharedModules = [
               discocss.hmModule
+              nixvim.homeManagerModules.nixvim
               {
                 nixpkgs.overlays = [
                   nur.overlay

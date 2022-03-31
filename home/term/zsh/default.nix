@@ -7,8 +7,6 @@
     sessionVariables = {
       PATH =
         "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
-      #      GIT_SSH_COMMAND =
-      #        "ssh -i $HOME/.config/ssh/key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
       EDITOR = "nvim";
       VISUAL = "emacs";
       BROWSER = "firefox";
@@ -17,6 +15,7 @@
     };
     history = {
       expireDuplicatesFirst = true;
+      ignoreDups = true;
       extended = true;
       save = 50000;
     };
@@ -46,13 +45,7 @@
             zstyle ':fzf-tab:complete:_zlua:*' query-string input
             zstyle ':fzf-tab:complete:*:*' fzf-preview '/home/weeb/bin/preview.sh $realpath' # remember to use single quote here!!!
             zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-              
-            ## FIX Cursor Breaking after exiting vim
-            _fix_cursor() {
-               echo -ne '\e[5 q'
-            }
-      #      export PS1="$(_fix_cursor)$PS1"
-        
+            
             #HISTORY CONFIG
             bindkey "$terminfo[kcuu1]" history-substring-search-up
             bindkey "$terminfo[kcud1]" history-substring-search-down

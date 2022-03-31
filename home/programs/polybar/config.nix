@@ -155,7 +155,7 @@
         foreground = "#E087A9";
       };
       muted = {
-        text = "F#cbc037}%{F-} %{F#E087A9}mute%{F-}";
+        text = "%{F#cbc037}%{F-} %{F#E087A9}mute%{F-}";
         foreground = "#E087A9";
         background = "#121212";
         padding = 2;

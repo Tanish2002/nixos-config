@@ -34,7 +34,7 @@
       # Touchpad
       libinput = {
         enable = true;
-        touchpad.tapping = false;
+        touchpad.tapping = true;
       };
 
       # Display Manager
@@ -57,11 +57,12 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     wget
-    neovim
+    #neovim
     git
     nixfmt
     nixpkgs-fmt
     git-crypt
+    cachix
   ];
   programs = {
     zsh = {
@@ -73,10 +74,11 @@
     light.enable = true;
   };
   services.openssh.enable = true;
-
+  services.gnome.gnome-keyring.enable = true;
   # Make nix use nixUnstable and enable flakes
   nix = {
     package = pkgs.nixUnstable;
+    trustedUsers = [ "root" "weeb" ];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

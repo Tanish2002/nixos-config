@@ -4,9 +4,12 @@
   home = {
     username = "weeb";
     homeDirectory = "/home/weeb";
+    # General Packages
     packages = with pkgs; [
       gnome.file-roller
       kochi-substitute
+      qbittorrent
+      libreoffice-fresh
       inputs.comma.defaultPackage.x86_64-linux
     ];
     sessionVariables = { MOZ_DBUS_REMOTE = 1; };

@@ -1,5 +1,8 @@
-{ pkgs, ... }: {
-  imports = [ ./vscode ./ssh ];
+{ pkgs, inputs, ... }:
+let
+  stable = inputs.nixpkgs-2105.legacyPackages.x86_64-linux;
+in {
+  imports = [ ./vscode ./ssh ./nvim ./helix ];
   programs = {
     git = {
       enable = true;
@@ -13,14 +16,16 @@
     rnix-lsp
     # Misc
     postman
+    stable.mysqlWorkbench # Later Versions of nixpkgs have broken mysqlworkbench
+    zip
     # Rust
     rustup
     rust-analyzer
     # Golang
-    go
+    unstable.go
     gopls
     # Python
     python39
     python39Packages.python-lsp-server
-    ];
+  ];
 }

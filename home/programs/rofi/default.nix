@@ -3,7 +3,7 @@
     rofi = {
       enable = true;
       package = pkgs.unstable.rofi;
-      font = "Iosevka Term, JoyPixels 14";
+      font = "Iosevka Term 14";
       terminal = "${pkgs.st-tanish2002}/bin/st";
       extraConfig = {
         modi = "run,ssh,drun";

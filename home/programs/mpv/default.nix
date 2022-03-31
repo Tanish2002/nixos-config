@@ -2,12 +2,14 @@
   programs = {
     mpv = {
       enable = true;
-      package = pkgs.wrapMpv
-        (pkgs.mpv-unwrapped.override {
-          sixelSupport = true;
-        })
-        { youtubeSupport = true; };
-      config = { input-ipc-server = "/tmp/mpvsocket"; };
+      package =
+        pkgs.wrapMpv (pkgs.mpv-unwrapped.override { sixelSupport = true; }) {
+          youtubeSupport = true;
+        };
+      config = {
+        input-ipc-server = "/tmp/mpvsocket";
+        sub-auto = "all";
+      };
     };
   };
   xdg.configFile.mpvtube_playlists = {

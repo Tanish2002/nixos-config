@@ -5,6 +5,6 @@
     packages = with pkgs; [ scripts ];
     
     # Link the scripts to home
-    file.bin.source = "${inputs.bin}/scripts";
+    file.bin.source = "${pkgs.scripts}/bin";
   };
 }
