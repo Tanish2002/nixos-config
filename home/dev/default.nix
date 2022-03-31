@@ -2,7 +2,7 @@
 let
   stable = inputs.nixpkgs-2105.legacyPackages.x86_64-linux;
 in {
-  imports = [ ./vscode ./ssh ];
+  imports = [ ./vscode ./ssh ./helix ];
   programs = {
     git = {
       enable = true;
