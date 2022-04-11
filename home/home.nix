@@ -10,6 +10,7 @@
       kochi-substitute
       qbittorrent
       libreoffice-fresh
+      zathura
       inputs.comma.defaultPackage.x86_64-linux
     ];
     sessionVariables = { MOZ_DBUS_REMOTE = 1; };
