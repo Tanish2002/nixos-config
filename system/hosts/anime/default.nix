@@ -7,10 +7,14 @@
     useDHCP = false;
   };
   services.connman = {
-      enable = true;
-      package = pkgs.connmanFull;
-      wifi.backend = "iwd";
-    };
+    enable = true;
+    package = pkgs.connmanFull;
+    wifi.backend = "iwd";
+  };
+
+  services.cassandra = {
+    enable = true;
+  };
   environment.systemPackages = with pkgs; [ wpa_supplicant_gui connman-gtk ];
   boot.initrd.kernelModules = [ "amdgpu" "acpi_call" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
