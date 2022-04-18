@@ -90,7 +90,11 @@
                 nixpkgs.overlays = [
                   nur.overlay
                   (final: prev: {
-                    unstable = unstable.legacyPackages.${prev.system};
+                    # unstable = unstable.legacyPackages.${prev.system};
+                    unstable = import unstable {
+                      system = "${prev.system}";
+                      config.allowUnfree = true;
+                    };
                   })
                 ];
               }

@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }:
-let stable = inputs.nixpkgs-2105.legacyPackages.x86_64-linux;
+let
+  stable = inputs.nixpkgs-2105.legacyPackages.x86_64-linux;
 in {
   imports = [ ./vscode ./ssh ./helix ./nvim ];
   programs = {
@@ -15,6 +16,7 @@ in {
     rnix-lsp
     # Misc
     postman
+    unstable.jetbrains.datagrip
     stable.mysqlWorkbench # Later Versions of nixpkgs have broken mysqlworkbench
     zip
     # Rust
