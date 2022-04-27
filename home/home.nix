@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ config, lib, pkgs, ... }: {
   imports = [ ./term ./programs ./wallpapers ./X ./scripts ./dev ./theming ];
   nixpkgs.config.allowUnfree = true;
   home = {
@@ -11,7 +11,7 @@
       qbittorrent
       libreoffice-fresh
       zathura
-      inputs.comma.defaultPackage.x86_64-linux
+      unstable.comma
     ];
     sessionVariables = { MOZ_DBUS_REMOTE = 1; };
   };

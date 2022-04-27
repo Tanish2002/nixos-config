@@ -23,7 +23,7 @@ in {
     rustup
     rust-analyzer
     # Golang
-    unstable.go
+    unstable.go_1_18
     gopls
     # Python
     python39

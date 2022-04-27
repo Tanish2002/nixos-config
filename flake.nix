@@ -7,10 +7,7 @@
     nur.url = "github:nix-community/NUR";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      # url = "github:nix-community/home-manager";
-
-      # use my fork till my lf PR gets merged
-      url = "github:Tanish2002/home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     discord-overlay = {
