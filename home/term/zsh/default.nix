@@ -1,12 +1,11 @@
-{ config, pkgs, ... }: {
-  imports = [ ./plugins.nix ./alias.nix ];
+{ pkgs, ... }: {
+  imports = [ ./plugins.nix ./alias.nix ./prompt.nix];
   programs.zsh = {
     enable = true;
     autocd = true;
     dotDir = ".config/zsh";
     sessionVariables = {
-      PATH =
-        "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
+      PATH = "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
       EDITOR = "nvim";
       VISUAL = "emacs";
       BROWSER = "firefox";
@@ -20,7 +19,6 @@
       save = 50000;
     };
     initExtra = ''
-      #      eval "$(starship init zsh)"
             setopt NO_NOMATCH   # disable some globbing
 
             # If you come from bash you might have to change your $PATH.

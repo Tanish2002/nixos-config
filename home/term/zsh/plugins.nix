@@ -40,17 +40,6 @@ in {
         file =
           "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
       }
-      #Prompt
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./.;
-        file = "p10k.zsh";
-      }
       # Sane Defaults
       {
         name = "zimfw-input";
