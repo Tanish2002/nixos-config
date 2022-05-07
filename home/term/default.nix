@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./zsh ./st ];
+  imports = [ ./zsh ./st ./foot ];
   home.packages = with pkgs; [ ripgrep fzf xclip ];
   programs = {
     bat = {
