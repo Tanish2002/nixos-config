@@ -1,6 +1,6 @@
 { theme, ... }:
 with theme.config; {
-  imports = [ ./dwm ./xmonad ];
+  imports = [ ./dwm ./xmonad ./hyprland ];
   xresources.extraConfig = ''
     st.alpha: 1
     st.termname: st-256color 
