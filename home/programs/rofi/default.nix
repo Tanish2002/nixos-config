@@ -2,7 +2,7 @@
   programs = {
     rofi = {
       enable = true;
-      package = pkgs.unstable.rofi;
+      package = pkgs.nur.repos.kira-bruneau.rofi-wayland;
       font = "Iosevka Term 14";
       terminal = "${pkgs.st-tanish2002}/bin/st";
       extraConfig = {
@@ -11,7 +11,7 @@
         disable-history = false;
         hide-scrollbar = true;
       };
-      theme = import ./colors.nix { inherit config theme;};
+      theme = import ./colors.nix { inherit config theme; };
     };
   };
 }
