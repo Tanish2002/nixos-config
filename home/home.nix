@@ -13,7 +13,11 @@
       zathura
       unstable.comma
     ];
-    sessionVariables = { MOZ_DBUS_REMOTE = 1; };
+    sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      XDG_CURRENT_DESKTOP = "sway";
+      MOZ_DBUS_REMOTE = 1;
+    };
   };
   home.stateVersion = "21.11";
   programs.home-manager.enable = true;

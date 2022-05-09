@@ -51,6 +51,7 @@
       package.symbol = " ";
       python.symbol = " ";
       rust.symbol = " ";
+      cmake.symbol = "";
       cmake.format = "via [$symbol]($style)";
       cobol.format = "via [$symbol]($style)";
       crystal.format = "via [$symbol]($style)";

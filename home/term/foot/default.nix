@@ -8,6 +8,11 @@
         dpi-aware = "yes";
         pad = "${pad}x${pad}";
       };
+      cursor.style = "beam";
+      key-bindings = {
+        clipboard-copy = "Mod1+c XF86Copy";
+        clipboard-paste = "Mod1+v XF86Paste";
+      };
       colors = {
         alpha = 1.0;
         foreground = "${fg}";

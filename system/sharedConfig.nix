@@ -18,6 +18,13 @@
   # Time Zone
   time.timeZone = "Asia/Kolkata";
 
+  # ENV VARIABLES
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    XDG_CURRENT_DESKTOP = "sway";
+    MOZ_DBUS_REMOTE = "1";
+  };
+
   # Internationalisation stuff.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -25,7 +32,18 @@
     keyMap = "us";
   };
 
-  # X11 Stuff 
+  # Wayland Stuff
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs;
+      [
+        xdg-desktop-portal-wlr
+        #xdg-desktop-portal-gtk
+      ];
+    gtkUsePortal = true;
+  };
+
+  # X11 Stuff
   services = {
     xserver = {
       enable = true;
@@ -43,8 +61,16 @@
   };
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  sound.enable = false;
+  # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # User account 
   users.users.weeb = {
@@ -75,6 +101,7 @@
   };
   services.openssh.enable = true;
   services.gnome.gnome-keyring.enable = true;
+
   # Make nix use nixUnstable and enable flakes
   nix = {
     package = pkgs.nixUnstable;
@@ -87,4 +114,3 @@
   system.stateVersion = "21.11";
 
 }
-

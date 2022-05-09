@@ -18,8 +18,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     nixpkgs-2105.url = "github:nixos/nixpkgs/nixos-21.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-f2k = {
-      url = "github:fortuneteller2k/nixpkgs-f2k";
+    hyprland = {
+      url = "github:vaxerski/Hyprland";
       inputs.nixpkgs.follows = "unstable";
     };
     nur.url = "github:nix-community/NUR";
@@ -32,7 +32,7 @@
     emacs-ng.url = "github:emacs-ng/emacs-ng?ref=v0.0.6b6dfb3";
     discord-overlay = {
       url = "github:InternetUnexplorer/discord-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "unstable";
     };
     comma = {
       url = "github:nix-community/comma";
@@ -88,7 +88,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
-    , nix-doom-emacs, nixvim, nixpkgs-f2k, ... }:
+    , nix-doom-emacs, nixvim, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
@@ -114,7 +114,6 @@
                         system = "${system}";
                         config.allowUnfree = true;
                       };
-                      f2k = nixpkgs-f2k.packages.${system};
                     })
                 ];
               }
