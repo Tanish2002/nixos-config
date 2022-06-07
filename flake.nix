@@ -15,7 +15,7 @@
     ];
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
     nixpkgs-2105.url = "github:nixos/nixpkgs/nixos-21.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland = {
@@ -29,7 +29,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    emacs-ng.url = "github:emacs-ng/emacs-ng?ref=v0.0.6b6dfb3";
+    # Fix the rev so emacs isn't build everytime.
+    emacs-overlay.url =
+      "github:nix-community/emacs-overlay?ref=681b5512f5bc6ae454cf3a8c224c72d368981d12";
     discord-overlay = {
       url = "github:InternetUnexplorer/discord-overlay";
       inputs.nixpkgs.follows = "unstable";
@@ -88,11 +90,22 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
-    , nix-doom-emacs, nixvim, ... }:
+    , nix-doom-emacs, nixvim, emacs-overlay, hyprland, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
-      sharedOverlays = [ (import ./overlays) ];
+      sharedOverlays = [
+        (import ./overlays)
+        # Unstable Packages for System Nixpkgs
+        (final: _:
+          let inherit (final) system;
+          in {
+            unstable = import unstable {
+              system = "${system}";
+              config.allowUnfree = true;
+            };
+          })
+      ];
 
       hostDefaults.modules = [
         home-manager.nixosModules.home-manager
@@ -107,8 +120,10 @@
               {
                 nixpkgs.overlays = [
                   nur.overlay
+                  emacs-overlay.overlay
+                  # Unstable Packages for Home Nixpkgs
                   (final: _:
-                    let system = final.system;
+                    let inherit (final) system;
                     in {
                       unstable = import unstable {
                         system = "${system}";

@@ -1,6 +1,5 @@
 { pkgs, inputs, ... }:
-let
-  stable = inputs.nixpkgs-2105.legacyPackages.x86_64-linux;
+let stable = inputs.nixpkgs-2105.legacyPackages.x86_64-linux;
 in {
   imports = [ ./vscode ./ssh ./helix ./nvim ./emacs ];
   programs = {
@@ -14,16 +13,18 @@ in {
   home.packages = with pkgs; [
     # Nix
     rnix-lsp
+    statix
     # Misc
     postman
-    unstable.jetbrains.datagrip
+    jetbrains.datagrip
     stable.mysqlWorkbench # Later Versions of nixpkgs have broken mysqlworkbench
     zip
     # Rust
-    rustup
+    cargo
+    rustc
     rust-analyzer
     # Golang
-    unstable.go_1_18
+    go_1_18
     gopls
     # Python
     python39

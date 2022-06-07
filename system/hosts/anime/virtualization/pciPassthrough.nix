@@ -26,7 +26,7 @@ in {
   };
 
   ###### implementation
-  config = (mkIf cfg.enable {
+  config = mkIf cfg.enable {
 
     boot.kernelParams = [ "${cfg.cpuType}_iommu=on" ];
 
@@ -58,6 +58,6 @@ in {
       "${pkgs.OVMF}/FV/OVMF.fd:${pkgs.OVMF}/FV/OVMF_VARS.fd"
       ]
     '';
-  });
+  };
 
 }

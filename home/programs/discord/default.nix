@@ -9,7 +9,7 @@
         discord-css = pkgs.symlinkJoin {
           name = "discord";
           paths =
-            [ wrapped inputs.discord-overlay.packages.${final.system}.discord ];
+            [ wrapped inputs.discord-overlay.packages."${final.system}".discord ];
         };
       })
   ];

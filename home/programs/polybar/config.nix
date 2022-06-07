@@ -19,7 +19,7 @@
     font = [
       "VictorMono Nerd Font Mono:style=Bold:size=12;3"
       "FontAwesome:style=Regular:pixelsize=12;3"
-      "Kochi Gothic:style=Regular-Mono:pixelsize=12;3"
+      "IPAGothic:style=Regular:pixelsize=12;3"
       "Font Awesome 5 Brands:pixelsize=12;3"
     ];
 

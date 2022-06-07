@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   imports = [ ./looking-glass.nix ./pciPassthrough.nix ];
   pciPassthrough = {
     enable = true;

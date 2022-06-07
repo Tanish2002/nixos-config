@@ -3,7 +3,7 @@
     enable = true;
     doomPrivateDir = ./doom.d;
     # emacsPackage = inputs.emacs-ng.packages.x86_64-linux.default;
-    emacsPackage = pkgs.unstable.emacs28NativeComp;
+    emacsPackage = pkgs.emacsPgtkNativeComp;
   };
   services.emacs.enable = true;
 }

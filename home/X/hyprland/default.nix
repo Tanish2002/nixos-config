@@ -1,5 +1,5 @@
 { pkgs, theme, config, inputs, ... }:
-let hyprland = inputs.hyprland.defaultPackage.x86_64-linux;
+let hyprland = inputs.hyprland.packages.x86_64-linux.default;
 in {
   home.packages = [ hyprland ];
   xdg.configFile."hyprland.conf" = {

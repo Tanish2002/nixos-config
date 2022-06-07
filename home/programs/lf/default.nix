@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let lfPackage = pkgs.lf;
+in {
   imports = [ ./config.nix ];
   programs.lf = {
     enable = true;
@@ -12,7 +14,7 @@
           	${pkgs.coreutils}/bin/rm "$FIFO_UEBERZUG"
           }
           if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-          	${pkgs.unstable.lf}/bin/lf "$@"
+          	${lfPackage}/bin/lf "$@"
           else
           	[ ! -d "$HOME/.cache/lf" ] && mkdir -p "$HOME/.cache/lf"
           	export FIFO_UEBERZUG="$HOME/.cache/lf/ueberzug-$$"
@@ -20,10 +22,10 @@
           	${pkgs.ueberzug}/bin/ueberzug layer -s <"$FIFO_UEBERZUG" -p json &
           	exec 3>"$FIFO_UEBERZUG"
           	trap cleanup HUP INT QUIT TERM PWR EXIT
-          	${pkgs.unstable.lf}/bin/lf "$@" 3>&-
+          	${lfPackage}/bin/lf "$@" 3>&-
           fi
         '')
-        pkgs.unstable.lf
+        lfPackage
       ];
     };
   };

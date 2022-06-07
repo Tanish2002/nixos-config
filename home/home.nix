@@ -7,11 +7,11 @@
     # General Packages
     packages = with pkgs; [
       gnome.file-roller
-      kochi-substitute
       qbittorrent
+      ipafont
       libreoffice-fresh
       zathura
-      unstable.comma
+      comma
     ];
     sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;

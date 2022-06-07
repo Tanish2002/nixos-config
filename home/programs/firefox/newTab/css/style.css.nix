@@ -1,4 +1,4 @@
-{ }: ''
+_: ''
   @font-face {
       font-family: "FuraMono Nerd Font Mono";
       font-weight: "bold"

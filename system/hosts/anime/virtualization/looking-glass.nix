@@ -43,7 +43,7 @@ in {
 
        See <link xlink:href="https://looking-glass.io/docs/stable/install/#full-command-line-options">documentation</link> for list of supported options.
      '';
-     type = settingsFormat.type;
+     inherit (settingsFormat) type;
      default = { };
     };
   };

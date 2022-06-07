@@ -33,14 +33,22 @@
   };
 
   # Wayland Stuff
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs;
+  #     [
+  #       xdg-desktop-portal-wlr
+  #       #xdg-desktop-portal-gtk
+  #     ];
+  #   gtkUsePortal = true;
+  # };
+  security.polkit.enable = true;
+  hardware.opengl.enable = true;
+  fonts.enableDefaultFonts = true;
+  programs = { xwayland.enable = true; };
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs;
-      [
-        xdg-desktop-portal-wlr
-        #xdg-desktop-portal-gtk
-      ];
-    gtkUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
 
   # X11 Stuff
@@ -70,6 +78,16 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+  };
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+        ["bluez5.enable-sbc-xq"] = true,
+        ["bluez5.enable-msbc"] = true,
+        ["bluez5.enable-hw-volume"] = true,
+        ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+      }
+    '';
   };
 
   # User account 
@@ -104,7 +122,7 @@
 
   # Make nix use nixUnstable and enable flakes
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.unstable.nix;
     trustedUsers = [ "root" "weeb" ];
     extraOptions = ''
       experimental-features = nix-command flakes

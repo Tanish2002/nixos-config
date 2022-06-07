@@ -1,6 +1,6 @@
 { pkgs, inputs, theme, ... }: {
   home.pointerCursor = {
-    package = pkgs.unstable.phinger-cursors;
+    package = pkgs.phinger-cursors;
     name = "phinger-cursors-light";
     gtk.enable = true;
     x11 = {

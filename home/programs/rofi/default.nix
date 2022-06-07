@@ -2,7 +2,7 @@
   programs = {
     rofi = {
       enable = true;
-      package = pkgs.nur.repos.kira-bruneau.rofi-wayland;
+      package = pkgs.nur.repos.c0deaddict.rofi-wayland;
       font = "Iosevka Term 14";
       terminal = "${pkgs.st-tanish2002}/bin/st";
       extraConfig = {

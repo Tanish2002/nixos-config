@@ -9,7 +9,7 @@ in {
   programs = {
     firefox = {
       enable = true;
-      package = pkgs.firefox-wayland.override {
+      package = pkgs.firefox.override {
         # Changes Default newTab Page to a custom one.
         extraPrefs = ''
           var {classes:Cc,interfaces:Ci,utils:Cu} = Components;
