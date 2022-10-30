@@ -7,7 +7,7 @@
       terminal = "${pkgs.st-tanish2002}/bin/st";
       extraConfig = {
         modi = "run,ssh,drun";
-        columns = 2;
+        columns = 1;
         disable-history = false;
         hide-scrollbar = true;
       };

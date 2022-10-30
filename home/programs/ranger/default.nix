@@ -15,5 +15,5 @@
       target = "ranger/plugins/ranger_devicons";
     };
   };
-  home.packages = [ pkgs.ranger ]; 
+  home.packages = [ pkgs.ranger pkgs.w3m ];
 }

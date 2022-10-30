@@ -101,12 +101,13 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     wget
-    #neovim
     git
     nixfmt
     nixpkgs-fmt
     git-crypt
     cachix
+    alsa-utils
+    micro
   ];
   programs = {
     zsh = {

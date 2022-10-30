@@ -16,7 +16,7 @@
   };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    nixpkgs-2105.url = "github:nixos/nixpkgs/nixos-21.05";
+    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland = {
       url = "github:vaxerski/Hyprland";
@@ -25,16 +25,19 @@
     nur.url = "github:nix-community/NUR";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    # Fix the rev so emacs isn't build everytime.
-    emacs-overlay.url =
-      "github:nix-community/emacs-overlay?ref=681b5512f5bc6ae454cf3a8c224c72d368981d12";
+
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     discord-overlay = {
       url = "github:InternetUnexplorer/discord-overlay";
       inputs.nixpkgs.follows = "unstable";
+    };
+    mpv-discord-rpc = {
+      url = "github:cniw/mpv-discordRPC";
+      flake = false;
     };
     comma = {
       url = "github:nix-community/comma";
@@ -46,10 +49,6 @@
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
       };
-    };
-    picom-phisch = {
-      url = "github:Tanish2002/picom";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     wallpapers = {
       url = "github:Tanish2002/wallpapers";
@@ -90,7 +89,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
-    , nix-doom-emacs, nixvim, emacs-overlay, hyprland, ... }:
+    , nix-doom-emacs, nixvim, emacs-overlay, hyprland, nixpkgs-f2k, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
@@ -130,6 +129,7 @@
                         config.allowUnfree = true;
                       };
                     })
+                  nixpkgs-f2k.overlays.default
                 ];
               }
             ];

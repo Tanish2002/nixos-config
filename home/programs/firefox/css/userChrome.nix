@@ -9,7 +9,7 @@
     --mff-sidebar-color: #b4ffff;
     --mff-tab-border-radius: 0px;
     --mff-tab-color: #eaddde;
-    --mff-tab-font-family: "VictorMono Nerd Font", Bold;
+    --mff-tab-font-family: "Iosevka Nerd Font Mono", Regular;
     --mff-tab-font-size: 11pt;
     --mff-tab-font-weight: 400;
     --mff-tab-height: 27px;
@@ -18,11 +18,11 @@
     --mff-tab-soundplaying-bg: #a369bf;
     --mff-urlbar-color: #f55966;
     --mff-urlbar-focused-color: #b4ffff;
-    --mff-urlbar-font-family: "VictorMono Nerd Font", Bold;
+    --mff-urlbar-font-family: "Iosevka Nerd Font Mono", Regular;
     --mff-urlbar-font-size: 12pt;
     --mff-urlbar-font-weight: 700;
     --mff-urlbar-results-color: #f55966;
-    --mff-urlbar-results-font-family: "VictorMono Nerd Font", Bold;
+    --mff-urlbar-results-font-family: "Iosevka Nerd Font Mono", Regular;
     --mff-urlbar-results-font-size: 12pt;
     --mff-urlbar-results-font-weight: 700;
     --mff-urlbar-results-url-color: #4c7399;
@@ -139,7 +139,7 @@
   }
 
   #tabs-newtab-button {
-    list-style-image: url("https://raw.githubusercontent.com/mut-ex/minimal-functional-fox/master/add.svg") !important;
+    list-style-image: url("${./add.svg}") !important;
     opacity: 0.7;
   }
 
@@ -215,11 +215,11 @@
   }
 
   #back-button {
-    list-style-image: url("https://raw.githubusercontent.com/mut-ex/minimal-functional-fox/master/left-arrow.svg") !important;
+    list-style-image: url("${./left-arrow.svg}") !important;
   }
 
   #forward-button {
-    list-style-image: url("https://raw.githubusercontent.com/mut-ex/minimal-functional-fox/master/right-arrow.svg") !important;
+    list-style-image: url("${./right-arrow.svg}") !important;
   }
 
   toolbar {

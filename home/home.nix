@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
-  imports = [ ./term ./programs ./wallpapers ./X ./scripts ./dev ./theming ];
+  imports =
+    [ ./term ./programs ./wallpapers ./X ./wayland ./scripts ./dev ./theming ];
   nixpkgs.config.allowUnfree = true;
   home = {
     username = "weeb";
@@ -12,6 +13,7 @@
       libreoffice-fresh
       zathura
       comma
+      flashfocus
     ];
     sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;

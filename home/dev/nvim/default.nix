@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   programs.nixvim = {
     enable = true;
-    #colorschemes.gruvbox.enable = true;
     colorschemes.onedark.enable = true;
     plugins = {
       barbar = {
@@ -40,12 +39,9 @@
       nvim-tree.enable = true;
       startify.enable = true;
       telescope.enable = true;
-      treesitter.enable = true;
+      # treesitter.enable = true;
     };
-    extraPlugins = with pkgs.vimPlugins; [
-      vim-nix
-      vim-go
-    ];
+    extraPlugins = with pkgs.vimPlugins; [ vim-nix vim-go ];
     extraPackages = with pkgs; [ gcc gopls python39Packages.python-lsp-server ];
     globals.mapleader = " "; # Sets the leader key to comma
     maps = {
@@ -64,13 +60,9 @@
         action = ":<C-U>Lspsaga range_code_action<CR>";
       };
       # Rename
-      normal."<leader>cr" = {
-        action = ":Lspsaga rename<CR>";
-      };
+      normal."<leader>cr" = { action = ":Lspsaga rename<CR>"; };
       # View Definations
-      normal."<leader>gd" = {
-        action = ":Lspsaga preview_definition<CR>";
-      };
+      normal."<leader>gd" = { action = ":Lspsaga preview_definition<CR>"; };
     };
     options = {
       number = true; # Show line numbers

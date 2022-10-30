@@ -4,7 +4,7 @@
       enable = true;
       backend = "glx";
       experimentalBackends = true;
-      package = inputs.picom-phisch.defaultPackage.x86_64-linux;
+      package = pkgs.picom-dccsillag;
       # Shadows
       shadow = false;
       shadowOffsets = [ 10 10 ];
@@ -33,6 +33,7 @@
       #Opacity Rule
       opacityRule = [ "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'" ];
       extraOptions = ''
+        animations = true;
         detect-client-opacity = true;
         blur: {
           method = "dual_kawase";

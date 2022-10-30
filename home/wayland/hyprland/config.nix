@@ -61,9 +61,9 @@ with theme.config; ''
   windowrule=workspace 6, Discord
 
   # basic binds
-  bind=SUPER,return,exec, footclient
-  bind=SUPERSHIFT,return,exec, foot
-  bind=SUPER,d,exec,rofi -show drun
+  bind=SUPER,return,exec, ${config.programs.foot.package}/bin/footclient
+  bind=SUPERSHIFT,return,exec, ${config.programs.foot.package}/bin/foot
+  bind=SUPER,d,exec, ${config.programs.rofi.package}/bin/rofi -show drun
   bind=SUPER,T,exec,alacritty
   bind=SUPERSHIFT,Q,killactive,
   bind=SUPERSHIFT,escape,exec,pkill Hyprland
