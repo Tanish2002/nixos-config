@@ -1,5 +1,8 @@
 { pkgs, config, ... }: {
-  imports = [ ./virtualization ./vpn.nix ];
+  imports = [
+    # ./virtualization
+    ./vpn.nix
+  ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   networking = {
