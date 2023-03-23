@@ -7,12 +7,18 @@ let
     sha256 = "sha256-urdewIQbtd579Km592plyg9LuQdcw6nvXpt/aF0hLAs=";
   };
   # Extra packages that should be available to emacs
-  extraBins = [ pkgs.unzip ];
+  extraBins = with pkgs; [
+    unzip
+    deno
+    python3
+    ripgrep
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
+  ];
 in rec {
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom.d;
-    emacsPackage = pkgs.emacsPgtk;
+    emacsPackage = pkgs.emacs-gtk;
     extraConfig = ''
       (setq exec-path (append exec-path '( ${
         lib.strings.concatMapStringsSep " " (x: ''"${x}/bin"'') extraBins

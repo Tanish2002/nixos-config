@@ -21,7 +21,7 @@
   # ENV VARIABLES
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
-    XDG_CURRENT_DESKTOP = "sway";
+    #   XDG_CURRENT_DESKTOP = "sway";
     MOZ_DBUS_REMOTE = "1";
   };
 
@@ -124,7 +124,7 @@
   # Make nix use nixUnstable and enable flakes
   nix = {
     package = pkgs.unstable.nix;
-    trustedUsers = [ "root" "weeb" ];
+    settings.trusted-users = [ "root" "weeb" ];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

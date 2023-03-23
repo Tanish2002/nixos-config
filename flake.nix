@@ -15,7 +15,7 @@
     ];
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland = {
@@ -30,7 +30,6 @@
     };
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
     discord-overlay = {
       url = "github:InternetUnexplorer/discord-overlay";
       inputs.nixpkgs.follows = "unstable";
@@ -58,9 +57,9 @@
       url = "github:Tanish2002/bin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:pta2002/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    neovim-config = {
+      url = "github:Tanish2002/neovim-config";
+      inputs.nixpkgs.follows = "unstable";
     };
     phocus = {
       url = "github:Tanish2002/gtk";
@@ -89,7 +88,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
-    , nix-doom-emacs, nixvim, emacs-overlay, hyprland, nixpkgs-f2k, ... }:
+    , nix-doom-emacs, hyprland, nixpkgs-f2k, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
@@ -114,12 +113,10 @@
             users.weeb = import ./home/home.nix;
             sharedModules = [
               discocss.hmModule
-              nixvim.homeManagerModules.nixvim
               nix-doom-emacs.hmModule
               {
                 nixpkgs.overlays = [
                   nur.overlay
-                  emacs-overlay.overlay
                   # Unstable Packages for Home Nixpkgs
                   (final: _:
                     let inherit (final) system;

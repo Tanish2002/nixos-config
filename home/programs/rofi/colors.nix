@@ -106,7 +106,7 @@ in {
     border = 0;
     width = mkLiteral "4px";
     padding = 0;
-    handle-color = mkLiteral "@normal-foreground";
+    handle-color = mkLiteral "@fg";
   };
 
   "#sidebar" = {
@@ -115,15 +115,15 @@ in {
   };
 
   "#button selected" = {
-    background-color = mkLiteral "@selected-normal-background";
+    background-color = mkLiteral "transparent";
     text-color = mkLiteral "#ffffff";
   };
 
   "#window.mainbox.inputbar" = { spacing = 0; };
 
   "#window.mainbox.inputbar.normal" = {
-    foreground = mkLiteral "@normal-foreground";
-    background = mkLiteral "@selected-normal-background";
+    foreground = mkLiteral "@fg";
+    background = mkLiteral "transparent";
   };
 
   "#prompt" = {
