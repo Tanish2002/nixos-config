@@ -5,25 +5,21 @@
       enable = true;
       userName = "Tanish2002";
       userEmail = "tanishkhare@gmail.com";
+      diff-so-fancy.enable = true;
     };
   };
   # LSP
   home.packages = with pkgs; [
     # Nix
-    rnix-lsp
+    nil
     statix
-    # Golang
-    go_1_18
-    gopls
-    # Web Dev
-    nodejs
-    python310Packages.livereload
+    deadnix
     # Misc
     postman
-    jetbrains.datagrip
     dbeaver
     zip
+    unzip
     gh
-    rust-analyzer
+    (callPackage ./leetcode-cli { }) # leetcode-cli
   ];
 }

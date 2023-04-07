@@ -1,4 +1,4 @@
-{ pkgs, theme, inputs, ... }:
+{ pkgs, theme, ... }:
 with theme.config; {
   programs.helix = {
     enable = true;

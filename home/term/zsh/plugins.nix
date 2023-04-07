@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 let
   # Hacky Fix for nix autocomplete(Credit: https://github.com/NobbZ/nixos-config/blob/63ddd01c21c692af1096272162e0e8c8a82d0525/home/modules/profiles/base/default.nix#L11)
   zsh-complete = pkgs.stdenv.mkDerivation {

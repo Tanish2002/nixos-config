@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   services.tailscale = { enable = true; };
   networking.firewall.allowedUDPPorts = [ 41641 ];
   networking.firewall.checkReversePath = "loose";

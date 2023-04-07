@@ -1,20 +1,15 @@
-{ pkgs, inputs, config, lib, ... }:
+{ pkgs, lib, ... }:
 let
-  cpl-src = pkgs.fetchFromGitHub {
-    repo = "copilot.el";
-    owner = "zerolfx";
-    rev = "9b13478720581580a045ac76ad68be075466a963";
-    sha256 = "sha256-urdewIQbtd579Km592plyg9LuQdcw6nvXpt/aF0hLAs=";
-  };
   # Extra packages that should be available to emacs
   extraBins = with pkgs; [
-    unzip
-    deno
-    python3
     ripgrep
     (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
   ];
-in rec {
+in {
+  systemd.user.services.emacs.Unit = {
+    After = [ "graphical-session-pre.target" ];
+    PartOf = [ "graphical-session.target" ];
+  };
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom.d;

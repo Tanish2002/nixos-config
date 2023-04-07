@@ -1,4 +1,4 @@
-{ pkgs, theme }: {
+{ pkgs }: {
   "colours" = {
     background = {
       text = "#090909";

@@ -1,8 +1,9 @@
 { inputs, pkgs, theme, config, ... }: {
   nixpkgs.overlays = [
-    (final: prev: rec {
+    (final: prev: {
       xmonad-tanish2002 =
-        inputs.xmonad-tanish2002.defaultPackage.x86_64-linux.overrideAttrs (o: {
+        inputs.xmonad-tanish2002.packages.x86_64-linux.default.overrideAttrs
+        (_: {
           patches = [ ./change-alias.diff ];
           postPatch = ''
             substituteInPlace src/Apps/Alias.hs \
@@ -15,8 +16,5 @@
     })
   ];
   home.packages = [ pkgs.xmonad-tanish2002 ];
-  xsession = {
-    enable = true;
-    windowManager.command = "${pkgs.xmonad-tanish2002}/bin/xmonad";
-  };
+  xsession.windowManager.command = "${pkgs.xmonad-tanish2002}/bin/xmonad";
 }

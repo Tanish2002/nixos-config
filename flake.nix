@@ -6,12 +6,14 @@
       "emacsng.cachix.org-1:i7wOr4YpdRpWWtShI8bT6V7lOTnPeI7Ho6HaZegFWMI="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
     ];
     substituters = [
       "https://cache.nixos.org"
       "https://emacsng.cachix.org"
       "https://nix-community.cachix.org"
       "https://fortuneteller2k.cachix.org"
+      "https://cache.iog.io"
     ];
   };
   inputs = {
@@ -38,10 +40,6 @@
       url = "github:cniw/mpv-discordRPC";
       flake = false;
     };
-    comma = {
-      url = "github:nix-community/comma";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     discocss = {
       url = "github:mlvzk/discocss/flake";
       inputs = {
@@ -57,10 +55,12 @@
       url = "github:Tanish2002/bin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-config = {
-      url = "github:Tanish2002/neovim-config";
-      inputs.nixpkgs.follows = "unstable";
-    };
+    # Disabled until (https://github.com/pta2002/nixvim/issues/114) gets fixed.
+    # neovim-config = {
+    #   # url = "github:Tanish2002/neovim-config";
+    #   url = "path:/home/weeb/neovim-config";
+    #   inputs.nixpkgs.follows = "unstable";
+    # };
     phocus = {
       url = "github:Tanish2002/gtk";
       flake = false;
@@ -70,11 +70,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     st-tanish2002 = {
-      url = "github:Tanish2002/st-tanish2002";
+      # url = "github:Tanish2002/st-tanish2002";
+      url = "path:/home/weeb/st-tanish2002";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xmonad-tanish2002 = {
-      url = "github:Tanish2002/xmonad-tanish2002";
+      # url = "github:Tanish2002/xmonad-tanish2002";
+      url = "path:/home/weeb/xmonad-tanish2002";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tabbed-tanish2002 = {
@@ -88,7 +90,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
-    , nix-doom-emacs, hyprland, nixpkgs-f2k, ... }:
+    , nix-doom-emacs, nixpkgs-f2k, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;

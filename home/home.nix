@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./term
     ./programs
@@ -29,6 +29,7 @@
       MOZ_DBUS_REMOTE = 1;
     };
   };
+  xsession.enable = true;
   home.stateVersion = "21.11";
   programs.home-manager.enable = true;
 }

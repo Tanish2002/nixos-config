@@ -1,4 +1,4 @@
-rec {
+{
   font1 = "VictorMono Nerd Font Mono:pixelsize=15";
   font2 = "JoyPixels:pixelsize=20";
   cursorshape = "6";

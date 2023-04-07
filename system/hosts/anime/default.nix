@@ -15,7 +15,16 @@
     wifi.backend = "iwd";
   };
   hardware.bluetooth.enable = true;
-  environment.systemPackages = with pkgs; [ wpa_supplicant_gui connman-gtk ];
+  environment.systemPackages = with pkgs; [
+    wpa_supplicant_gui
+    connman-gtk
+    docker-compose
+  ];
   boot.initrd.kernelModules = [ "amdgpu" "acpi_call" ];
+  boot.blacklistedKernelModules =
+    [ "nouveau" "nvidia_drm" "nvidia_modeset" "nvidia" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  virtualisation.docker.enable = true;
+  users.users.weeb.extraGroups = [ "docker" ];
 }

@@ -1,4 +1,4 @@
-{ pkgs, theme, ... }: {
+{ theme, ... }: {
   programs.foot = with theme.config; {
     enable = true;
     server.enable = true;

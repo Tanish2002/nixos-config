@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -108,6 +108,7 @@
     cachix
     alsa-utils
     micro
+    htop
   ];
   programs = {
     zsh = {

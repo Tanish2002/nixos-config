@@ -31,6 +31,7 @@
     mpvtube_playlists = {
       text = ''
         Sangeet @https://www.youtube.com/playlist?list=PL88kQYE_UywBzqdk0S9QrTwrGk6sTorBP
+        Chill @https://youtube.com/playlist?list=PLgzTt0k8mXzEpH7-dOCHqRZOsakqXmzmG
       '';
       target = "mpv/mpvtube_playlists";
     };
