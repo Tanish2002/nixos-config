@@ -35,7 +35,7 @@ with theme.config; {
     ];
     settings = {
       theme = "base16_default";
-      lsp.display-messages = true;
+      # lsp.display-messages = true;
       editor.true-color = true;
       keys.normal = {
         space = {

@@ -4,7 +4,6 @@
     ./vpn.nix
   ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   networking = {
     hostName = "anime";
     useDHCP = false;
@@ -20,10 +19,12 @@
     connman-gtk
     docker-compose
   ];
-  boot.initrd.kernelModules = [ "amdgpu" "acpi_call" ];
-  boot.blacklistedKernelModules =
-    [ "nouveau" "nvidia_drm" "nvidia_modeset" "nvidia" ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  # Printing
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplipWithPlugin ];
+  };
 
   virtualisation.docker.enable = true;
   users.users.weeb.extraGroups = [ "docker" ];

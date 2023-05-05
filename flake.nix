@@ -6,20 +6,19 @@
       "emacsng.cachix.org-1:i7wOr4YpdRpWWtShI8bT6V7lOTnPeI7Ho6HaZegFWMI="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
-      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
     ];
     substituters = [
       "https://cache.nixos.org"
       "https://emacsng.cachix.org"
       "https://nix-community.cachix.org"
       "https://fortuneteller2k.cachix.org"
-      "https://cache.iog.io"
     ];
   };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland = {
       url = "github:vaxerski/Hyprland";
       inputs.nixpkgs.follows = "unstable";
@@ -90,7 +89,7 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs@{ self, nixpkgs, unstable, utils, home-manager, discocss, nur
-    , nix-doom-emacs, nixpkgs-f2k, ... }:
+    , nix-doom-emacs, nixpkgs-f2k, nixos-hardware, ... }:
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
@@ -108,6 +107,7 @@
       ];
 
       hostDefaults.modules = [
+        nixos-hardware.nixosModules.lenovo-ideapad-15arh05
         home-manager.nixosModules.home-manager
         ./system/sharedConfig.nix
         {

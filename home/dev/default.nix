@@ -15,7 +15,7 @@
     statix
     deadnix
     # Misc
-    postman
+    unstable.postman
     dbeaver
     zip
     unzip
