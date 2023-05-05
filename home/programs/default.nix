@@ -3,7 +3,6 @@ _: {
     ./picom
     ./tabbed
     ./rofi
-    ./ranger
     ./polybar
     ./discord
     ./dunst

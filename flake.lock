@@ -8,11 +8,11 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1683285926,
-        "narHash": "sha256-AmRb1LPSTOWpIE5npRKaIuK0SUEqIuV7Q5WgpauC2ak=",
+        "lastModified": 1683318162,
+        "narHash": "sha256-HiKoZ58JOnjT0a2QeN7rFoUXMnKp+0UG5FAx4u3yeCU=",
         "owner": "Tanish2002",
         "repo": "bin",
-        "rev": "f3a2e70cb497e7f9c284d91bf09ba6d4b3e3fa6d",
+        "rev": "a6a99b8ca15b561404cc567af837b3dd375f6eea",
         "type": "github"
       },
       "original": {
