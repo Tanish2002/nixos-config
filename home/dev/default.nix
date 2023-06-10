@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [./vscode ./ssh ./helix ./nvim ./emacs ./direnv];
+  imports = [./vscode ./ssh ./helix ./nvim ./direnv];
   programs = {
     git = {
       enable = true;
