@@ -1,6 +1,8 @@
 {
-  font1 = "VictorMono Nerd Font Mono:pixelsize=15";
-  font2 = "JoyPixels:pixelsize=20";
+  font1 = "VictorMono Nerd Font Mono";
+  font1_size = "15";
+  font2 = "JoyPixels";
+  font2_size = "20";
   cursorshape = "6";
   pad = "45";
   wallpaper = "flower.jpg";

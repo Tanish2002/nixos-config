@@ -1,6 +1,6 @@
-{ ... }: {
+_: {
   services.betterlockscreen = {
     enable = true;
-    arguments = [ "dimblur" ];
+    arguments = ["dimblur"];
   };
 }

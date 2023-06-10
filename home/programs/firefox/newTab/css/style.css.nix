@@ -1,18 +1,19 @@
-_: ''
+theme:
+with theme.config; ''
   @font-face {
-      font-family: "FuraMono Nerd Font Mono";
+      font-family: "${font1}";
       font-weight: "bold"
   }
 
   :root {
-      --font: "VictorMono Nerd Font Mono";
-      --background: #090909;
-      --foreground: #d6c2c3;
+      --font: "${font1}";
+      --background: #${bg};
+      --foreground: #${fg};
 
-      --pink: #4c7399;
-      --red: #f55966;
-      --orange: #a369bf;
-      --branch: 1px solid #eaddde;
+      --pink: #${c4};
+      --red: #${c9};
+      --orange: #${c5};
+      --branch: 1px solid #${c15};
   }
 
   html {

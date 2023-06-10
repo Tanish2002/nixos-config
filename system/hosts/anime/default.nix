@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{pkgs, ...}: {
   imports = [
     # ./virtualization
     ./vpn.nix
@@ -23,9 +23,9 @@
   # Printing
   services.printing = {
     enable = true;
-    drivers = [ pkgs.hplipWithPlugin ];
+    drivers = [pkgs.hplipWithPlugin];
   };
 
   virtualisation.docker.enable = true;
-  users.users.weeb.extraGroups = [ "docker" ];
+  users.users.weeb.extraGroups = ["docker"];
 }

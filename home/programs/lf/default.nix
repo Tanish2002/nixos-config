@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-let lfPackage = pkgs.lf;
+{pkgs, ...}: let
+  lfPackage = pkgs.lf;
 in {
-  imports = [ ./config.nix ];
+  imports = [./config.nix];
   programs.lf = {
     enable = true;
     package = pkgs.symlinkJoin {

@@ -1,14 +1,17 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   # Extra packages that should be available to emacs
   extraBins = with pkgs; [
     ripgrep
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science ]))
+    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
   ];
 in {
   systemd.user.services.emacs.Unit = {
-    After = [ "graphical-session-pre.target" ];
-    PartOf = [ "graphical-session.target" ];
+    After = ["graphical-session-pre.target"];
+    PartOf = ["graphical-session.target"];
   };
   programs.doom-emacs = {
     enable = true;

@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home.packages = [ pkgs.cpufrequtils ];
+{pkgs, ...}: {
+  home.packages = [pkgs.cpufrequtils];
   programs.zsh = {
     shellAliases = {
       ls = "ls --color=auto";
@@ -11,8 +11,7 @@
       c = "clear";
       v = "nvim";
       xdisp = "DISPLAY=:1";
-      waycord =
-        "Discord --enable-features=UseOzonePlatform --ozone-platform=wayland";
+      waycord = "Discord --enable-features=UseOzonePlatform --ozone-platform=wayland";
       h = "history";
       p = "pwd -P";
       s = "sudo -s";

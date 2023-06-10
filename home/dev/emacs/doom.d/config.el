@@ -1,6 +1,6 @@
-(setq doom-font (font-spec :family "Iosevka Term" :size 13)
-      doom-big-font (font-spec :family "Iosevka Term" :size 20)
-      doom-variable-pitch-font (font-spec :family "Iosevka Term" :size 13))
+(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 13)
+      doom-big-font (font-spec :family "Iosevka Nerd Font Mono" :size 20)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font Mono" :size 13))
 (setq doom-theme 'doom-horizon)
 
 (add-hook! 'emacs-startup-hook #'doom-init-ui-h)

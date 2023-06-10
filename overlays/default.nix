@@ -1,1 +1,1 @@
-final: prev: { plymouth-themes = prev.callPackage ./plymouth-themes { }; }
+_: prev: {plymouth-themes = prev.callPackage ./plymouth-themes {};}

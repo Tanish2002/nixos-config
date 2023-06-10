@@ -1,4 +1,4 @@
-{ pkgs }: {
+{pkgs}: {
   "colours" = {
     background = {
       text = "#090909";
@@ -121,7 +121,6 @@
         forground = "#E087A9";
         padding = 2;
       };
-
     };
     ramp.capacity = [
       "%{F#355957}%{F-}"
@@ -161,7 +160,7 @@
         padding = 2;
       };
     };
-    ramp.volume = [ "%{F#cbc037}%{F-}" ];
+    ramp.volume = ["%{F#cbc037}%{F-}"];
   };
   "module/wlan" = {
     type = "internal/network";
@@ -252,32 +251,35 @@
     };
     expand.right = true;
     menu = [
-      [ # 0
-        { # 0-0
+      [
+        # 0
+        {
+          # 0-0
           text = "";
-          exec =
-            "sleep 0.1; ${pkgs.betterlockscreen}/bin/betterlockscreen -l dimblur";
+          exec = "sleep 0.1; ${pkgs.betterlockscreen}/bin/betterlockscreen -l dimblur";
         }
-        { # 0-1
+        {
+          # 0-1
           text = "";
-          exec =
-            "${pkgs.libnotify}/bin/notify-send 'Logging Out' && sleep 1 && kill -15 $(pidof Xorg)";
+          exec = "${pkgs.libnotify}/bin/notify-send 'Logging Out' && sleep 1 && kill -15 $(pidof Xorg)";
         }
-        { # 0-2
+        {
+          # 0-2
           text = "";
           exec = "menu-open-1";
         }
       ]
-      [ # 1
-        { # 1-0
+      [
+        # 1
+        {
+          # 1-0
           text = "PowerOFF";
-          exec =
-            "${pkgs.libnotify}/bin/notify-send ' Shutting Down ' && sleep 1 && sudo shutdown -P now";
+          exec = "${pkgs.libnotify}/bin/notify-send ' Shutting Down ' && sleep 1 && sudo shutdown -P now";
         }
-        { # 1-1
+        {
+          # 1-1
           text = "Reboot";
-          exec =
-            "${pkgs.libnotify}/bin/notify-send ' Rebooting ' && sleep 1 && sudo reboot";
+          exec = "${pkgs.libnotify}/bin/notify-send ' Rebooting ' && sleep 1 && sudo reboot";
         }
       ]
     ];

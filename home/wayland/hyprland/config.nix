@@ -1,4 +1,8 @@
-{ pkgs, theme, config }:
+{
+  pkgs,
+  theme,
+  config,
+}:
 with theme.config; ''
 
   # Startup

@@ -1,5 +1,8 @@
-{ pkgs, ... }:
-let
+{
+  pkgs,
+  theme,
+  ...
+}: let
   firefox-work = pkgs.makeDesktopItem {
     name = "firefox-work";
     desktopName = "Firefox Work";
@@ -17,41 +20,46 @@ in {
           try {
             Cu.import("resource:///modules/AboutNewTab.jsm");
             var newTabURL = "file://${
-              pkgs.writeText "index.html"
-              "${import ./newTab/index.html.nix { inherit pkgs; }}"
-            }";
+            pkgs.writeText "index.html"
+            "${import ./newTab/index.html.nix {inherit pkgs theme;}}"
+          }";
             AboutNewTab.newTabURL = newTabURL;
             } catch(e){Cu.reportError(e);} // report errors in the Browser Console
         '';
       };
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        stylus
-        bitwarden
-      ];
       profiles = {
         personal = {
           id = 0;
-          userChrome = import ./css/userChrome.nix;
+          userChrome = import ./css/userChrome.nix theme;
           userContent = import ./css/userContent.nix;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "browser.toolbars.bookmarks.visibility" = "never";
             "general.smoothScroll" = true;
           };
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            stylus
+            bitwarden
+          ];
         };
         work = {
           id = 1;
-          userChrome = import ./css/userChrome.nix;
+          userChrome = import ./css/userChrome.nix theme;
           userContent = import ./css/userContent.nix;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "browser.toolbars.bookmarks.visibility" = "never";
             "general.smoothScroll" = true;
           };
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            stylus
+            bitwarden
+          ];
         };
       };
     };
   };
-  home.packages = [ firefox-work ];
+  home.packages = [firefox-work];
 }

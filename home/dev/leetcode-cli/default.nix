@@ -1,6 +1,14 @@
-{ lib, rustPlatform, pkg-config, openssl, dbus, sqlite, stdenv, darwin
-, fetchFromGitHub }:
-
+{
+  lib,
+  rustPlatform,
+  pkg-config,
+  openssl,
+  dbus,
+  sqlite,
+  stdenv,
+  darwin,
+  fetchFromGitHub,
+}:
 rustPlatform.buildRustPackage {
   name = "leetcode-cli";
 
@@ -12,10 +20,11 @@ rustPlatform.buildRustPackage {
   };
   cargoLock.lockFile = ./Cargo.lock;
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [pkg-config];
 
-  buildInputs = [ openssl dbus sqlite ]
-    ++ lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];
+  buildInputs =
+    [openssl dbus sqlite]
+    ++ lib.optionals stdenv.isDarwin [darwin.apple_sdk.frameworks.Security];
 
   meta = with lib; {
     description = "May the code be with you 👻";

@@ -1,11 +1,11 @@
-{ theme, ... }:
+{theme, ...}:
 with theme.config; {
-  imports = [ ./dwm ./xmonad ];
+  imports = [./dwm ./xmonad];
   xresources.extraConfig = ''
     st.alpha: 1
-    st.termname: st-256color 
-    st.font: ${font1}
-    st.font2: ${font2} 
+    st.termname: st-256color
+    st.font: ${font1}:pixelsize=${font1_size}
+    st.font2: ${font2}:pixelsize=${font2_size}
     st.cursorcolor: #${cc}
     st.cursorshape: ${cursorshape}
 

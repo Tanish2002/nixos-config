@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  imports = [ # Include the results of the hardware scan.
+{pkgs, ...}: {
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -10,7 +11,7 @@
     };
     plymouth = {
       enable = true;
-      themePackages = [ pkgs.plymouth-themes ];
+      themePackages = [pkgs.plymouth-themes];
       theme = "blockchain";
     };
   };
@@ -45,10 +46,10 @@
   security.polkit.enable = true;
   hardware.opengl.enable = true;
   fonts.enableDefaultFonts = true;
-  programs = { xwayland.enable = true; };
+  programs = {xwayland.enable = true;};
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = [pkgs.xdg-desktop-portal-wlr];
   };
 
   # X11 Stuff
@@ -69,31 +70,35 @@
   };
 
   # Enable sound.
-  sound.enable = false;
-  # hardware.pulseaudio.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-  environment.etc = {
-    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
-      bluez_monitor.properties = {
-        ["bluez5.enable-sbc-xq"] = true,
-        ["bluez5.enable-msbc"] = true,
-        ["bluez5.enable-hw-volume"] = true,
-        ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-      }
-    '';
-  };
+  # sound.enable = false;
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+  hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
+  nixpkgs.config.pulseaudio = true;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   wireplumber.enable = true;
+  #   # jack.enable = true;
+  # };
+  # environment.etc = {
+  #   "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+  #     bluez_monitor.properties = {
+  #       ["bluez5.enable-sbc-xq"] = true,
+  #       ["bluez5.enable-msbc"] = true,
+  #       ["bluez5.enable-hw-volume"] = true,
+  #       ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+  #     }
+  #   '';
+  # };
 
-  # User account 
+  # User account
   users.users.weeb = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    extraGroups = ["wheel" "networkmanager" "audio" "video"];
     shell = pkgs.zsh;
   };
   security.sudo.wheelNeedsPassword = false;
@@ -102,13 +107,13 @@
   environment.systemPackages = with pkgs; [
     wget
     git
-    nixfmt
-    nixpkgs-fmt
     git-crypt
+    alejandra
     cachix
     alsa-utils
     micro
     htop
+    pavucontrol
   ];
   programs = {
     zsh = {
@@ -125,12 +130,11 @@
   # Make nix use nixUnstable and enable flakes
   nix = {
     package = pkgs.unstable.nix;
-    settings.trusted-users = [ "root" "weeb" ];
+    settings.trusted-users = ["root" "weeb"];
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
   };
 
   system.stateVersion = "21.11";
-
 }

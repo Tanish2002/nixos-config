@@ -1,6 +1,9 @@
-{ pkgs, theme, ... }:
-with theme.config;
- {
+{
+  pkgs,
+  theme,
+  ...
+}:
+with theme.config; {
   services.dunst = {
     enable = true;
     settings = {
@@ -36,7 +39,7 @@ with theme.config;
         icon_position = "left";
         max_icon_size = 128;
       };
-      experimental = { per_monitor_dpi = true; };
+      experimental = {per_monitor_dpi = true;};
       shortcuts = {
         #close              = ctrl+space
         close_all = "ctrl+shift+space";
@@ -62,6 +65,5 @@ with theme.config;
         timeout = 0;
       };
     };
-
   };
 }

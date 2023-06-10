@@ -1,10 +1,10 @@
-{ theme, ... }: {
+{theme, ...}: {
   programs.foot = with theme.config; {
     enable = true;
     server.enable = true;
     settings = {
       main = {
-        font = "${font1}";
+        font = "${font1}:pixelsize=${font1_size}";
         dpi-aware = "yes";
         pad = "${pad}x${pad}";
       };

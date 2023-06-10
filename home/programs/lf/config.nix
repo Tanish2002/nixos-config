@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   lf_cleaner = pkgs.writeShellScriptBin "lf_cleaner" ''
     if [ -n "$FIFO_UEBERZUG" ]; then
     	printf '{"action": "remove", "identifier": "PREVIEW"}\n' > "$FIFO_UEBERZUG"
@@ -17,6 +16,7 @@ in {
       hidden = true;
     };
     keybindings = {
+      "<f-2>" = "rename";
       "d" = null;
       "dD" = "delete";
       "dd" = "cut";
@@ -52,13 +52,11 @@ in {
         }}
       '';
 
-      "yank-dirname" =
-        ''$dirname -- "$f" | head -c-1 | xclip -i -selection clipboard'';
+      "yank-dirname" = ''$dirname -- "$f" | head -c-1 | xclip -i -selection clipboard'';
 
       "yank-path" = ''$printf '%s' "$fx" | xclip -i -selection clipboard'';
 
-      "yank-basename" =
-        ''$basename -a -- "$fx" | head -c-1 | xclip -i -selection clipboard'';
+      "yank-basename" = ''$basename -a -- "$fx" | head -c-1 | xclip -i -selection clipboard'';
 
       "yank-basename-without-extension" = ''
         ''${{
@@ -71,7 +69,7 @@ in {
                     else print substr($0, 0, i-1
                     break
                   }
-                
+
                 if (i == 0)
                   print $0
               }' |

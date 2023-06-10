@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   nixpkgs.overlays = [
     (final: _: {
       discord-latest =
@@ -7,7 +11,7 @@
   ];
   programs.discocss = {
     enable = true;
-    discord = pkgs.discord-latest;
+    discordPackage = pkgs.discord-latest;
     discordAlias = true;
     css = import ./discordcss.nix;
   };

@@ -1,11 +1,14 @@
-{ pkgs, }: ''
+{
+  pkgs,
+  theme,
+}: ''
   <!DOCTYPE html>
   <html>
     <head>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="${
-        pkgs.writeText "style.css" "${import ./css/style.css.nix { }}"
-      }">
+    pkgs.writeText "style.css" "${import ./css/style.css.nix theme}"
+  }">
       <title>New Tab</title>
     </head>
     <body>

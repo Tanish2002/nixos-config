@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   # Hacky Fix for nix autocomplete(Credit: https://github.com/NobbZ/nixos-config/blob/63ddd01c21c692af1096272162e0e8c8a82d0525/home/modules/profiles/base/default.nix#L11)
   zsh-complete = pkgs.stdenv.mkDerivation {
     pname = "nix-zsh-completion-with-flakes";
@@ -7,7 +10,7 @@ let
 
     src = ./nix-completions.sh;
 
-    phases = [ "installPhase" ];
+    phases = ["installPhase"];
 
     installPhase = ''
       mkdir -p $out
@@ -20,7 +23,7 @@ in {
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
     plugins = with pkgs; [
-      #Fix for nix autocomplete 
+      #Fix for nix autocomplete
       {
         name = "nix-zsh-complete.zsh";
         src = zsh-complete;
@@ -36,8 +39,7 @@ in {
       {
         name = "zsh-history-substring-search";
         src = pkgs.zsh-history-substring-search;
-        file =
-          "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
       }
       # Sane Defaults
       {

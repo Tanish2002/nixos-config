@@ -1,4 +1,8 @@
-{ stdenvNoCC, inputs, discord-rpc }:
+{
+  stdenvNoCC,
+  inputs,
+  discord-rpc,
+}:
 stdenvNoCC.mkDerivation {
   pname = "mpv-discord-RPC";
   version = "git";

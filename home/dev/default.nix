@@ -1,5 +1,5 @@
-{ pkgs, inputs, ... }: {
-  imports = [ ./vscode ./ssh ./helix ./nvim ./emacs ./direnv ];
+{pkgs, ...}: {
+  imports = [./vscode ./ssh ./helix ./nvim ./emacs ./direnv];
   programs = {
     git = {
       enable = true;
@@ -20,6 +20,6 @@
     zip
     unzip
     gh
-    (callPackage ./leetcode-cli { }) # leetcode-cli
+    (callPackage ./leetcode-cli {}) # leetcode-cli
   ];
 }

@@ -1,6 +1,9 @@
-{ theme, config }:
-with theme.config;
-let inherit (config.lib.formats.rasi) mkLiteral;
+{
+  theme,
+  config,
+}:
+with theme.config; let
+  inherit (config.lib.formats.rasi) mkLiteral;
 in {
   "*" = {
     black = mkLiteral "#${c0}";
@@ -22,7 +25,6 @@ in {
     background-color = mkLiteral "transparent";
     text-color = mkLiteral "@text";
     border-color = mkLiteral "@red";
-
   };
 
   "window" = {
@@ -64,7 +66,7 @@ in {
     padding = 8;
   };
 
-  "prompt" = { text-color = mkLiteral "@red"; };
+  "prompt" = {text-color = mkLiteral "@red";};
 
   "textbox-prompt-colon" = {
     expand = false;
@@ -72,7 +74,7 @@ in {
     text-color = mkLiteral "@text-alt";
   };
 
-  "entry" = { margin = mkLiteral "0px 0px"; };
+  "entry" = {margin = mkLiteral "0px 0px";};
 
   "#listview" = {
     lines = 4;
@@ -119,7 +121,7 @@ in {
     text-color = mkLiteral "#ffffff";
   };
 
-  "#window.mainbox.inputbar" = { spacing = 0; };
+  "#window.mainbox.inputbar" = {spacing = 0;};
 
   "#window.mainbox.inputbar.normal" = {
     foreground = mkLiteral "@fg";

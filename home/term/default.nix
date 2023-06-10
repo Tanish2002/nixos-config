@@ -1,10 +1,10 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./zsh
     ./st
     # ./foot
   ];
-  home.packages = with pkgs; [ ripgrep fzf xclip ];
+  home.packages = with pkgs; [ripgrep fzf xclip];
   programs = {
     bat = {
       enable = true;
