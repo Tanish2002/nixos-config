@@ -3,13 +3,11 @@
   nixConfig = {
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "emacsng.cachix.org-1:i7wOr4YpdRpWWtShI8bT6V7lOTnPeI7Ho6HaZegFWMI="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
     ];
     substituters = [
       "https://cache.nixos.org"
-      "https://emacsng.cachix.org"
       "https://nix-community.cachix.org"
       "https://fortuneteller2k.cachix.org"
     ];
@@ -29,8 +27,6 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-
     discord-overlay = {
       url = "github:InternetUnexplorer/discord-overlay";
       inputs.nixpkgs.follows = "unstable";
@@ -87,7 +83,6 @@
     utils,
     home-manager,
     nur,
-    nix-doom-emacs,
     nixpkgs-f2k,
     nixos-hardware,
     ...
@@ -100,7 +95,8 @@
         (import ./overlays {inherit inputs;})
         nur.overlay
         nixpkgs-f2k.overlays.default
-        # Unstable Packages for System Nixpkgs
+
+        # Unstable Packages for System Nixpkgs (pkgs.unstable.foo)
         (final: _: let
           inherit (final) system;
         in {
@@ -115,20 +111,7 @@
         nixos-hardware.nixosModules.lenovo-ideapad-15arh05
         home-manager.nixosModules.home-manager
         ./system/sharedConfig.nix
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.weeb = import ./home/home.nix;
-            sharedModules = [
-              nix-doom-emacs.hmModule
-            ];
-            extraSpecialArgs = {
-              inherit inputs;
-              theme = import ./theme;
-            };
-          };
-        }
+        ./home/home.nix
       ];
       hosts.anime.modules = [./system/hosts/anime];
     };
