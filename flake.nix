@@ -94,7 +94,7 @@
       sharedOverlays = [
         (import ./overlays {inherit inputs;})
         nur.overlay
-        nixpkgs-f2k.overlays.default
+        nixpkgs-f2k.overlays.compositors
 
         # Unstable Packages for System Nixpkgs (pkgs.unstable.foo)
         (final: _: let

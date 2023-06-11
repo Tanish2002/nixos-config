@@ -130,10 +130,10 @@
   # Make nix use nixUnstable and enable flakes
   nix = {
     package = pkgs.unstable.nix;
-    settings.trusted-users = ["root" "weeb"];
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    settings = {
+      trusted-users = ["root" "weeb"];
+      experimental-features = ["nix-command" "flakes"];
+    };
   };
 
   system.stateVersion = "21.11";
