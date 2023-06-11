@@ -1,7 +1,6 @@
 _: {
   imports = [
     ./picom
-    ./tabbed
     ./rofi
     ./polybar
     ./discord
