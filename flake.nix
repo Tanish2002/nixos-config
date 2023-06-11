@@ -95,8 +95,11 @@
     utils.lib.mkFlake {
       inherit self inputs;
       channelsConfig.allowUnfree = true;
+      channelsConfig.joypixels.acceptLicense = true;
       sharedOverlays = [
-        (import ./overlays)
+        (import ./overlays {inherit inputs;})
+        nur.overlay
+        nixpkgs-f2k.overlays.default
         # Unstable Packages for System Nixpkgs
         (final: _: let
           inherit (final) system;
@@ -114,24 +117,11 @@
         ./system/sharedConfig.nix
         {
           home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
             users.weeb = import ./home/home.nix;
             sharedModules = [
               nix-doom-emacs.hmModule
-              {
-                nixpkgs.overlays = [
-                  nur.overlay
-                  # Unstable Packages for Home Nixpkgs
-                  (final: _: let
-                    inherit (final) system;
-                  in {
-                    unstable = import unstable {
-                      system = "${system}";
-                      config.allowUnfree = true;
-                    };
-                  })
-                  nixpkgs-f2k.overlays.default
-                ];
-              }
             ];
             extraSpecialArgs = {
               inherit inputs;

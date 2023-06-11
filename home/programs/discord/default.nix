@@ -1,14 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  nixpkgs.overlays = [
-    (final: _: {
-      discord-latest =
-        inputs.discord-overlay.packages."${final.system}".discord;
-    })
-  ];
+{pkgs, ...}: {
   programs.discocss = {
     enable = true;
     discordPackage = pkgs.discord-latest;

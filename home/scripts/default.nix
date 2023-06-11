@@ -1,19 +1,17 @@
 {
   pkgs,
-  inputs,
   config,
   ...
 }: let
-  scripts = inputs.bin.packages.x86_64-linux.default.override {
+  scripts = pkgs.scripts.override {
     mpv = config.programs.mpv.package;
     rofi = config.programs.rofi.package;
   };
 in {
-  nixpkgs.overlays = [(_: _: {inherit scripts;})];
   home = {
-    packages = [pkgs.scripts];
+    packages = [scripts];
 
     # Link the scripts to home
-    file.bin.source = "${pkgs.scripts}/bin";
+    file.bin.source = "${scripts}/bin";
   };
 }

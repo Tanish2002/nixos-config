@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # I have this just because it's nice to have in some scenarious
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;

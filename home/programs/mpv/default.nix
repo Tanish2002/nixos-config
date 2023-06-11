@@ -5,12 +5,13 @@
 }: {
   programs.mpv = {
     enable = true;
-    # TODO: Use stable mpv when https://github.com/NixOS/nixpkgs/pull/221071 gets added to stable
     package =
-      pkgs.wrapMpv (pkgs.unstable.mpv-unwrapped.override {
+      pkgs.wrapMpv
+      (pkgs.mpv-unwrapped.override {
         lua = pkgs.luajit; # use liajit instead of lua so discord-rpc works
         sixelSupport = true;
-      }) {
+      })
+      {
         youtubeSupport = true;
         scripts = [(pkgs.callPackage ./discord-rpc.nix {inherit inputs;})];
       };

@@ -13,7 +13,6 @@
     ./dev
     ./theming
   ];
-  nixpkgs.config.allowUnfree = true;
   home = {
     username = "weeb";
     homeDirectory = "/home/weeb";
