@@ -1,5 +1,4 @@
-{inputs}: _: prev: {
-  plymouth-themes = prev.callPackage ./plymouth-themes {};
+{inputs}: _: _: {
   st-tanish2002 = inputs.st-tanish2002.defaultPackage.x86_64-linux;
   dwm-tanish2002 = inputs.dwm-tanish2002.defaultPackage.x86_64-linux;
   scripts = inputs.bin.packages.x86_64-linux.default;

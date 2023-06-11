@@ -11,7 +11,7 @@
     };
     plymouth = {
       enable = true;
-      themePackages = [pkgs.plymouth-themes];
+      themePackages = [(pkgs.adi1090x-plymouth-themes.override {selected_themes = ["blockchain"];})];
       theme = "blockchain";
     };
   };
