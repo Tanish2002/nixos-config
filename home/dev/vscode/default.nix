@@ -2,7 +2,7 @@
   # I have this just because it's nice to have in some scenarious
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       jnoortheen.nix-ide

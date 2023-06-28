@@ -2,12 +2,12 @@
 with theme.config; {
   imports = [./dwm ./xmonad];
   xresources.extraConfig = ''
-    st.alpha: 1
-    st.termname: st-256color
-    st.font: ${font1}:pixelsize=${font1_size}
-    st.font2: ${font2}:pixelsize=${font2_size}
-    st.cursorcolor: #${cc}
-    st.cursorshape: ${cursorshape}
+    *.alpha: 1
+    *.termname: st-256color
+    *.font: ${font1}:pixelsize=${font1_size}
+    *.font2: ${font2}:pixelsize=${font2_size}
+    *.cursorcolor: #${cc}
+    *.cursorshape: ${cursorshape}
 
     ! special
     *.foreground:   #${fg}

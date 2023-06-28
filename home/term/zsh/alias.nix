@@ -15,7 +15,7 @@
       h = "history";
       p = "pwd -P";
       s = "sudo -s";
-      vim = "nvim";
+      vim = "${pkgs.neovim-tanish2002}/bin/nvim";
       rr = "lf";
       gameoff = "sudo cpufreq-set -g powersave";
       gameon = "sudo cpufreq-set -g performance";

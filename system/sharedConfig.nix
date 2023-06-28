@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -133,8 +138,13 @@
     settings = {
       trusted-users = ["root" "weeb"];
       experimental-features = ["nix-command" "flakes"];
+      auto-optimise-store = true;
     };
   };
+  nixpkgs.config.allowUnfree = true;
+  # This will add your inputs as registries, making operations with them (such
+  # as nix shell nixpkgs#name) consistent with your flake inputs.
+  nix.registry = lib.mapAttrs' (n: v: lib.nameValuePair n {flake = v;}) inputs;
 
   system.stateVersion = "21.11";
 }

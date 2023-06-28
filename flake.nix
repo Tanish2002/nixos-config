@@ -91,6 +91,8 @@
       inherit self inputs;
       channelsConfig.allowUnfree = true;
       channelsConfig.joypixels.acceptLicense = true;
+      channels.nixpkgs.input = nixpkgs;
+
       sharedOverlays = [
         (import ./overlays {inherit inputs;})
         nur.overlay
@@ -113,6 +115,7 @@
         ./system/sharedConfig.nix
         ./home/home.nix
       ];
+      hostDefaults.specialArgs = {inherit inputs;};
       hosts.anime.modules = [./system/hosts/anime];
     };
 }

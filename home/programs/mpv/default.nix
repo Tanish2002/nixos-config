@@ -39,6 +39,10 @@
       text = ''
         Sangeet @https://www.youtube.com/playlist?list=PL88kQYE_UywBzqdk0S9QrTwrGk6sTorBP
         Chill @https://youtube.com/playlist?list=PLgzTt0k8mXzEpH7-dOCHqRZOsakqXmzmG
+        JPop @https://listen.moe/stream
+        Kpop @https://listen.moe/kpop/stream
+        Hungama @http://103.16.47.70:7222/
+        Mirchi @http://peridot.streamguys.com:7150/Mirchi
       '';
       target = "mpv/mpvtube_playlists";
     };
