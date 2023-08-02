@@ -1,5 +1,5 @@
 {
-  font1 = "VictorMono Nerd Font Mono";
+  font1 = "Iosevka Nerd Font Mono";
   font1_size = "15";
   font2 = "JoyPixels";
   font2_size = "20";

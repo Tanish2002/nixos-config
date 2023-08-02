@@ -35,7 +35,7 @@
       ];
     };
     settings = {
-      theme = "base16_default";
+      theme = "catppuccin_mocha";
       # lsp.display-messages = true;
       editor.true-color = true;
       keys.normal = {

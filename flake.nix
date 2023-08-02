@@ -27,10 +27,6 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    discord-overlay = {
-      url = "github:InternetUnexplorer/discord-overlay";
-      inputs.nixpkgs.follows = "unstable";
-    };
     mpv-discord-rpc = {
       url = "github:cniw/mpv-discordRPC";
       flake = false;
@@ -40,7 +36,7 @@
       flake = false;
     };
     bin = {
-      url = "github:Tanish2002/bin";
+      url = "git+file:/home/weeb/bin1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-config = {
@@ -49,7 +45,7 @@
       # inputs.nixpkgs.follows = "unstable";
     };
     phocus = {
-      url = "github:Tanish2002/gtk";
+      url = "github:phocus/gtk";
       flake = false;
     };
     dwm-tanish2002 = {
@@ -58,12 +54,12 @@
     };
     st-tanish2002 = {
       # url = "github:Tanish2002/st-tanish2002";
-      url = "path:/home/weeb/st-tanish2002";
+      url = "git+file:/home/weeb/st-tanish2002";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xmonad-tanish2002 = {
       # url = "github:Tanish2002/xmonad-tanish2002";
-      url = "path:/home/weeb/xmonad-tanish2002";
+      url = "git+file:/home/weeb/xmonad-tanish2002";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     tabbed-tanish2002 = {

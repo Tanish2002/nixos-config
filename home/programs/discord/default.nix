@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.discocss = {
     enable = true;
-    discordPackage = pkgs.discord-latest;
+    discordPackage = pkgs.discord;
     discordAlias = true;
     css = import ./discordcss.nix;
   };

@@ -7,8 +7,6 @@
     sessionVariables = {
       PATH = "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
       EDITOR = "nvim";
-      VISUAL = "neovide";
-      GIT_EDITOR = "neovide --nofork";
       BROWSER = "firefox";
       LC_ALL = "en_US.UTF-8";
       HISTORY_SUBSTRING_SEARCH_PREFIXED = "1";
@@ -20,6 +18,25 @@
       save = 50000;
     };
     initExtra = ''
+      function title {
+        echo -en "\033]0;$@\a"
+      }
+
+      # wraps helix in a function that sets the title with the args provided to hx
+      # this is typically the file name/directory
+      # this does not restore the title after leaving hx
+      function hx {
+        title $@
+        command hx $@
+      }
+
+      # runs before going back to the prompt in zsh (after a command)
+      # sets the title to be "zsh" when just at the prompt
+      precmd () {
+        title zsh
+      }
+      #
+
       setopt NO_NOMATCH   # disable some globbing
 
       # If you come from bash you might have to change your $PATH.

@@ -15,17 +15,17 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/0925874b-9158-4729-8112-44a06f9ad039";
+    device = "/dev/disk/by-label/NIXOS";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/DE18-B010";
+    device = "/dev/disk/by-label/SYSTEM_DRV";
     fsType = "vfat";
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/391917ac-09f5-4ee9-9b5c-c35fe0ecaa44";
+    device = "/dev/disk/by-label/HOME";
     fsType = "ext4";
   };
 
