@@ -20,45 +20,12 @@
       theme = "blockchain";
     };
   };
-
-  # Time Zone
-  time.timeZone = "Asia/Kolkata";
-
-  # ENV VARIABLES
-  environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
-    #   XDG_CURRENT_DESKTOP = "sway";
-    MOZ_DBUS_REMOTE = "1";
-  };
-
-  # Internationalisation stuff.
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
-
-  # Wayland Stuff
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs;
-  #     [
-  #       xdg-desktop-portal-wlr
-  #       #xdg-desktop-portal-gtk
-  #     ];
-  #   gtkUsePortal = true;
-  # };
-  security.polkit.enable = true;
-  hardware.opengl.enable = true;
-  fonts.enableDefaultFonts = true;
-  programs = {xwayland.enable = true;};
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr];
-  };
-
-  # X11 Stuff
   services = {
+    gvfs.enable = true;
+    udisks2.enable = true;
+
+    # X11 Stuff
+
     xserver = {
       enable = true;
       layout = "us";
@@ -71,7 +38,75 @@
 
       # Display Manager
       displayManager.sx.enable = true;
+
+      # Remap ctrl to caps lock
+      xkbOptions = "ctrl:swapcaps";
     };
+
+    openssh.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
+  # Time Zone
+  time.timeZone = "Asia/Kolkata";
+  environment = {
+    # ENV VARIABLES
+    sessionVariables = {
+      MOZ_ENABLE_WAYLAND = "1";
+      #   XDG_CURRENT_DESKTOP = "sway";
+      MOZ_DBUS_REMOTE = "1";
+    };
+    etc."xdg/user-dirs.defaults".text = ''
+      DESKTOP=Desktop
+      DOCUMENTS=Documents
+      DOWNLOAD=Downloads
+      MUSIC=Music
+      PICTURES=Pictures
+      PUBLICSHARE=Public
+      TEMPLATES=Templates
+      VIDEOS=Videos
+    '';
+
+    # System Packages
+    systemPackages = with pkgs; [
+      wget
+      git
+      git-crypt
+      alejandra
+      cachix
+      alsa-utils
+      micro
+      htop
+      pavucontrol
+      protonvpn-gui
+      protonvpn-cli
+    ];
+  };
+  # Internationalisation stuff.
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    useXkbConfig = true;
+  };
+
+  # Wayland Stuff
+  # xdg.portal = {
+  #   enable = true;
+  # extraPortals = with pkgs;
+  #   [
+  #     xdg-desktop-portal-wlr
+  #     #xdg-desktop-portal-gtk
+  #   ];
+  # gtkUsePortal = true;
+  # };
+  security.polkit.enable = true;
+  hardware.opengl.enable = true;
+  fonts.enableDefaultPackages = true;
+  programs = {xwayland.enable = true;};
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+    configPackages = [pkgs.gnome.gnome-session];
   };
 
   # Enable sound.
@@ -79,7 +114,7 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
   hardware.pulseaudio.extraConfig = "load-module module-combine-sink";
-  nixpkgs.config.pulseaudio = true;
+  # pkgs.config.pulseaudio = true;
   # security.rtkit.enable = true;
   # services.pipewire = {
   #   enable = true;
@@ -107,19 +142,6 @@
     shell = pkgs.zsh;
   };
   security.sudo.wheelNeedsPassword = false;
-
-  # System Packages
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    git-crypt
-    alejandra
-    cachix
-    alsa-utils
-    micro
-    htop
-    pavucontrol
-  ];
   programs = {
     zsh = {
       enable = true;
@@ -129,8 +151,6 @@
     dconf.enable = true;
     light.enable = true;
   };
-  services.openssh.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   # Make nix use nixUnstable and enable flakes
   nix = {
@@ -141,7 +161,7 @@
       auto-optimise-store = true;
     };
   };
-  nixpkgs.config.allowUnfree = true;
+  # pkgs.config.allowUnfree = true;
   # This will add your inputs as registries, making operations with them (such
   # as nix shell nixpkgs#name) consistent with your flake inputs.
   nix.registry = lib.mapAttrs' (n: v: lib.nameValuePair n {flake = v;}) inputs;

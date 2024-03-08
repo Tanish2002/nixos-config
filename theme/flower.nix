@@ -1,4 +1,5 @@
 {
+  name = "flower";
   font1 = "Iosevka Nerd Font Mono";
   font1_size = "15";
   font2 = "JoyPixels";
@@ -7,8 +8,8 @@
   pad = "45";
   wallpaper = "flower.jpg";
 
-  dbg = "121212";
-  lbg = "18181f";
+  dbg = "090909";
+  lbg = "121212";
 
   fg = "d6c2c3";
   bg = "0f0f12";
@@ -30,4 +31,7 @@
   c13 = "a265bf";
   c14 = "5dd4d4";
   c15 = "f8e1e2";
+
+  #Custom Extra colors
+  pink = "E087A9";
 }

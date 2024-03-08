@@ -1,17 +1,21 @@
-{pkgs}: {
+{
+  pkgs,
+  theme,
+  config,
+}:
+with theme.config; {
   "colours" = {
     background = {
-      text = "#090909";
-      alt = "#121212";
+      text = "#${dbg}";
+      alt = "#${lbg}";
     };
     foreground = {
-      text = "#f55966";
-      alt = "#E087A9";
+      text = "#${c9}";
+      alt =
+        if theme.config.name == "flower"
+        then "#${pink}"
+        else "#${c13}";
     };
-    base02 = "#2b4c4a";
-    base10 = "#355957";
-    base15 = "#eaddde";
-    base03 = "#cbc037";
   };
   "bar/main" = {
     monitor = "eDP";
@@ -33,10 +37,10 @@
 
     tray = {
       position = "left";
-      background = "#121212";
+      background = "#${lbg}";
     };
-    background = "#090909";
-    foreground = "#f55966";
+    background = "#${dbg}";
+    foreground = "#${c9}";
 
     cursor = {
       click = "pointer";
@@ -44,7 +48,7 @@
     };
     modules = {
       left = "wlan volume battery layout";
-      center = "mpv vpn";
+      center = "mpv";
       right = "date workspaces menu-apps";
     };
   };
@@ -54,8 +58,8 @@
 
     format = {
       text = "<label-state>";
-      background = "#121212";
-      foreground = "#cbc037";
+      background = "#${lbg}";
+      foreground = "#${c3}";
       padding = 1;
     };
 
@@ -93,49 +97,58 @@
       discharging = {
         text = "<ramp-capacity><label-discharging>";
         padding = 2;
-        background = "#121212";
+        background = "#${lbg}";
       };
       charging = {
         text = "<animation-charging><label-charging>";
         padding = 2;
-        background = "#121212";
+        background = "#${lbg}";
       };
       full = {
-        text = "%{F#355957}%{F-}<label-full>";
-        background = "#121212";
+        text = "%{F#${c2}}%{F-}<label-full>";
+        background = "#${lbg}";
       };
     };
 
     label = {
       discharging = {
         text = "%percentage:3%%";
-        forground = "#E087A9";
+        forground =
+          if theme.config.name == "flower"
+          then "#${pink}"
+          else "#${c13}";
       };
       charging = {
         text = "%percentage:3%%";
-        forground = "#E087A9";
+        forground =
+          if theme.config.name == "flower"
+          then "#${pink}"
+          else "#${c13}";
       };
       full = {
         text = "Charged";
-        background = "#121212";
-        forground = "#E087A9";
+        background = "#${lbg}";
+        forground =
+          if theme.config.name == "flower"
+          then "#${pink}"
+          else "#${c13}";
         padding = 2;
       };
     };
     ramp.capacity = [
-      "%{F#355957}%{F-}"
-      "%{F#355957}%{F-}"
-      "%{F#355957}%{F-}"
-      "%{F#355957}%{F-}"
-      "%{F#355957}%{F-}"
+      "%{F#${c2}}%{F-}"
+      "%{F#${c2}}%{F-}"
+      "%{F#${c2}}%{F-}"
+      "%{F#${c2}}%{F-}"
+      "%{F#${c2}}%{F-}"
     ];
     animation = {
       charging = [
-        "%{F#355957}%{F-}"
-        "%{F#355957}%{F-}"
-        "%{F#355957}%{F-}"
-        "%{F#355957}%{F-}"
-        "%{F#355957}%{F-}"
+        "%{F#${c2}}%{F-}"
+        "%{F#${c2}}%{F-}"
+        "%{F#${c2}}%{F-}"
+        "%{F#${c2}}%{F-}"
+        "%{F#${c2}}%{F-}"
       ];
       framerate = 750;
     };
@@ -146,21 +159,27 @@
     format.volume = {
       text = "<ramp-volume><label-volume>";
       padding = 2;
-      background = "#121212";
+      background = "#${lbg}";
     };
     label = {
       volume = {
         text = "%percentage:3%%";
-        foreground = "#E087A9";
+        foreground =
+          if theme.config.name == "flower"
+          then "#${pink}"
+          else "#${c5}";
       };
       muted = {
-        text = "%{F#cbc037}%{F-} %{F#E087A9}mute%{F-}";
-        foreground = "#E087A9";
-        background = "#121212";
+        text = "%{F#${c3}}%{F-} %{F#${
+          if theme.config.name == "flower"
+          then pink
+          else c5
+        }}mute";
+        background = "#${lbg}";
         padding = 2;
       };
     };
-    ramp.volume = ["%{F#cbc037}%{F-}"];
+    ramp.volume = ["%{F#${c3}} %{F-}"];
   };
   "module/wlan" = {
     type = "internal/network";
@@ -172,15 +191,13 @@
     interval = 5;
     label = {
       connected = {
-        text = "%{F#4c7399} %{F-}%ifname%";
-        foreground = "#E087A9";
-        background = "#121212";
+        text = "%{F#${c4}}󰖩 %{F-}%ifname%";
+        background = "#${lbg}";
         padding = 1;
       };
       disconnected = {
-        text = "";
-        foreground = "#E087A9";
-        background = "#121212";
+        text = "%{F#${c4}}󰖪 %{F-}Disconnected";
+        background = "#${lbg}";
         padding = 1;
       };
     };
@@ -191,12 +208,11 @@
     label = {
       text = "%time%";
       padding = 2;
-      background = "#090909";
-      foreground = "#E087A9";
+      background = "#${dbg}";
     };
     time = {
-      text = "%{F#eaddde} %{F-} %I:%M %p%";
-      alt = "%{F#eaddde}%{F-} %d-%m-%Y%";
+      text = "%{F#${fg}} %{F-} %I:%M %p%";
+      alt = "%{F#${fg}}%{F-} %d-%m-%Y%";
     };
   };
   "module/layout" = {
@@ -209,8 +225,8 @@
     tail = true;
     format = {
       text = "<label>";
-      background = "#090909";
-      foreground = "f55966";
+      background = "#${dbg}";
+      foreground = "#${c9}";
       padding = 1.5;
     };
 
@@ -220,21 +236,27 @@
   "module/mpv" = {
     type = "custom/script";
     exec = {
-      text = "${pkgs.scripts}/bin/song-name";
+      text = "${config.home.homeDirectory}/bin/song-name";
       "if" = "${pkgs.procps}/bin/pgrep -x mpv";
     };
     format = {
       text = "<label>";
       prefix = "  ";
       padding = 3;
-      foreground = "#0E0909";
-      background = "#E087A9";
+      foreground = "#${dbg}";
+      background =
+        if theme.config.name == "flower"
+        then "#${pink}"
+        else "#${c13}";
     };
     click = {
-      left = "${pkgs.scripts}/bin/mpvctl -t";
-      right = "${pkgs.scripts}/bin/mpvctl -q";
+      left = "${config.home.homeDirectory}/bin/mpvctl -t";
+      right = "${config.home.homeDirectory}/bin/mpvctl -q";
     };
-
+    scroll = {
+      up = "${config.home.homeDirectory}/bin/appvol mpv inc";
+      down = "${config.home.homeDirectory}/bin/appvol mpv dec";
+    };
     label = {
       text = "%output%";
       maxlen = 65;
@@ -245,8 +267,11 @@
 
     format = {
       text = "<label-toggle><menu>";
-      background = "#121212";
-      foreground = "#E087A9";
+      background = "#${lbg}";
+      foreground =
+        if theme.config.name == "flower"
+        then "#${pink}"
+        else "#${c13}";
       padding = 3;
     };
     expand.right = true;
@@ -287,19 +312,6 @@
       open = "";
       close = "";
       separator = "      ";
-    };
-  };
-  "module/vpn" = {
-    type = "custom/script";
-    exec = {
-      text = "${pkgs.coreutils}/bin/echo vpn";
-      "if" = "${pkgs.procps}/bin/pgrep -x openvpn";
-    };
-    interval = 5;
-    format = {
-      underline = "#268bd2";
-      prefix = "🖧 ";
-      prefix-foreground = "#5b";
     };
   };
 }

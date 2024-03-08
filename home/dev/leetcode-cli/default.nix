@@ -1,36 +1,60 @@
 {
   lib,
+  fetchCrate,
   rustPlatform,
   pkg-config,
+  installShellFiles,
   openssl,
   dbus,
   sqlite,
   stdenv,
   darwin,
-  fetchFromGitHub,
+  testers,
+  leetcode-cli,
 }:
-rustPlatform.buildRustPackage {
-  name = "leetcode-cli";
+rustPlatform.buildRustPackage rec {
+  pname = "leetcode-cli";
+  version = "0.4.3";
 
-  src = fetchFromGitHub {
-    owner = "clearloop";
-    repo = "leetcode-cli";
-    rev = "13d85dfb729ecbaca8132b0f9ae52d30971bbdd1";
-    hash = "sha256-dZv3HftqzelKre1Gd0rGD+gZgqF6YwHYY6DqZ4YLh/8=";
+  src = fetchCrate {
+    inherit pname version;
+    sha256 = "sha256-y5zh93WPWSMDXqYangqrxav+sC0b0zpFIp6ZIew6KMo=";
   };
-  cargoLock.lockFile = ./Cargo.lock;
 
-  nativeBuildInputs = [pkg-config];
+  cargoHash = "sha256-VktDiLsU+GOsa6ba9JJZGEPTavSKp+aSZm2dfhPEqMs=";
+
+  nativeBuildInputs = [
+    pkg-config
+    installShellFiles
+  ];
 
   buildInputs =
-    [openssl dbus sqlite]
+    [
+      openssl
+      dbus
+      sqlite
+    ]
     ++ lib.optionals stdenv.isDarwin [darwin.apple_sdk.frameworks.Security];
+
+  postInstall = ''
+    installShellCompletion --cmd leetcode \
+      --bash <($out/bin/leetcode completions bash) \
+      --fish <($out/bin/leetcode completions fish) \
+      --zsh <($out/bin/leetcode completions zsh)
+  '';
+
+  passthru.tests = testers.testVersion {
+    package = leetcode-cli;
+    command = "leetcode -V";
+    version = "leetcode ${version}";
+  };
 
   meta = with lib; {
     description = "May the code be with you 👻";
     longDescription = "Use leetcode.com in command line";
     homepage = "https://github.com/clearloop/leetcode-cli";
     license = licenses.mit;
+    maintainers = with maintainers; [congee];
     mainProgram = "leetcode";
   };
 }

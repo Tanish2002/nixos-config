@@ -18,9 +18,9 @@
         ./theming
       ];
 
-      nixpkgs.config = {
-        allowUnfree = true;
-      };
+      # nixpkgs.config = {
+      #   allowUnfree = true;
+      # };
       home = {
         username = "weeb";
         homeDirectory = "/home/weeb";
@@ -33,6 +33,7 @@
           zathura
           comma
           flashfocus
+          chromium # just coz it's nice to have...
         ];
         sessionVariables = {
           MOZ_ENABLE_WAYLAND = 1;
@@ -41,6 +42,7 @@
         };
       };
       xsession.enable = true;
+      xdg.userDirs.createDirectories = true;
       home.stateVersion = "21.11";
       programs.home-manager.enable = true;
     };

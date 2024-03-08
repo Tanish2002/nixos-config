@@ -13,7 +13,8 @@
     ];
   };
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs_23.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -24,7 +25,7 @@
     nur.url = "github:nix-community/NUR";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mpv-discord-rpc = {
@@ -70,11 +71,18 @@
       url = "github:spwhitt/nix-zsh-completions";
       flake = false;
     };
+    zjstatus.url = "github:dj95/zjstatus";
+    tmux-catppuccin = {
+      url = "github:catppuccin/tmux";
+      flake = false;
+    };
+    tmux-sessionx.url = "github:omerxx/tmux-sessionx/0345b61be9c315dcb16ae1506865fc102acd8eb9";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs_23,
     unstable,
     utils,
     home-manager,
@@ -85,8 +93,11 @@
   }:
     utils.lib.mkFlake {
       inherit self inputs;
-      channelsConfig.allowUnfree = true;
-      channelsConfig.joypixels.acceptLicense = true;
+      channelsConfig = {
+        allowUnfree = true;
+        pulseaudio = true;
+        joypixels.acceptLicense = true;
+      };
       channels.nixpkgs.input = nixpkgs;
 
       sharedOverlays = [
@@ -99,6 +110,10 @@
           inherit (final) system;
         in {
           unstable = import unstable {
+            system = "${system}";
+            config.allowUnfree = true;
+          };
+          old = import nixpkgs_23 {
             system = "${system}";
             config.allowUnfree = true;
           };

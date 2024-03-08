@@ -33,7 +33,10 @@ _: {
         style = "purple";
         format = "[$ahead_behind$all_status]($style)";
       };
-      aws.symbol = "  ";
+      aws = {
+        disabled = true;
+        symbol = "  ";
+      };
       conda.symbol = " ";
       dart.symbol = " ";
       docker_context.symbol = " ";

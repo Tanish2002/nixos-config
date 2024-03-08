@@ -5,4 +5,5 @@
   hyprland = inputs.hyprland.packages.x86_64-linux.default;
   neovim-tanish2002 = inputs.neovim-config.packages.x86_64-linux.default;
   xmonad-tanish2002 = inputs.xmonad-tanish2002.packages.x86_64-linux.default;
+  zjstatus = inputs.zjstatus.packages.x86_64-linux.default;
 }

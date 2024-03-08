@@ -5,7 +5,7 @@
     autocd = true;
     dotDir = ".config/zsh";
     sessionVariables = {
-      PATH = "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:\${PATH}";
+      PATH = "\${HOME}/.local/bin:$HOME/.emacs.d/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:\${PATH}";
       EDITOR = "nvim";
       BROWSER = "firefox";
       LC_ALL = "en_US.UTF-8";
@@ -33,9 +33,8 @@
       # runs before going back to the prompt in zsh (after a command)
       # sets the title to be "zsh" when just at the prompt
       precmd () {
-        title zsh
+        [ -z $TERM_PROGRAM ] && title zsh
       }
-      #
 
       setopt NO_NOMATCH   # disable some globbing
 

@@ -38,7 +38,16 @@ in {
             "general.smoothScroll" = true;
           };
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            (buildFirefoxXpiAddon {
+              pname = "adaptive-tab-bar-color";
+              version = "2.1.4";
+              addonId = "ATBC@EasonWong";
+              url = "https://addons.mozilla.org/firefox/downloads/file/4159211/adaptive_tab_bar_colour-2.1.4.xpi";
+              sha256 = "sha256-QB4GQEiCbdYn8CBD7gQIG3yu0ZEWHz3nzInCK0oiL/g=";
+              meta = {};
+            })
             ublock-origin
+            hoppscotch
             stylus
             bitwarden
           ];
@@ -53,6 +62,7 @@ in {
             "general.smoothScroll" = true;
           };
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            hoppscotch
             ublock-origin
             stylus
             bitwarden

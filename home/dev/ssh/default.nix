@@ -15,6 +15,13 @@ _: {
         identityFile = "${./keys/work/key}";
         identitiesOnly = true;
       };
+      "home" = {
+        hostname = "100.93.231.44";
+        user = "snoopy";
+        identityFile = "${./keys/personal/key}";
+        identitiesOnly = true;
+        port = 69;
+      };
     };
   };
 }

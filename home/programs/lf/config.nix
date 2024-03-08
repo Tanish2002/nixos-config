@@ -1,14 +1,12 @@
-{pkgs, ...}: let
-  lf_cleaner = pkgs.writeShellScriptBin "lf_cleaner" ''
-    if [ -n "$FIFO_UEBERZUG" ]; then
-    	printf '{"action": "remove", "identifier": "PREVIEW"}\n' > "$FIFO_UEBERZUG"
-    fi
-  '';
-in {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.lf = {
-    previewer.source = "${pkgs.scripts}/bin/lf_preview.sh";
+    previewer.source = "${config.home.homeDirectory}/bin/lf_preview.sh";
     extraConfig = ''
-      set cleaner ${lf_cleaner}/bin/lf_cleaner
+      set sixel true
     '';
     settings = {
       icons = true;
@@ -18,7 +16,7 @@ in {
     keybindings = {
       "<f-2>" = "rename";
       "d" = null;
-      "dD" = "delete";
+      "dD" = "trash";
       "dd" = "cut";
       "y" = null;
       "yy" = "copy";
@@ -51,7 +49,7 @@ in {
             lf -remote "send clear"
         }}
       '';
-
+      "trash" = "%${pkgs.trash-cli}/bin/trash-put $fx";
       "yank-dirname" = ''$dirname -- "$f" | head -c-1 | xclip -i -selection clipboard'';
 
       "yank-path" = ''$printf '%s' "$fx" | xclip -i -selection clipboard'';
